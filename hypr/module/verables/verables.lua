@@ -13,7 +13,7 @@ _G.menu        = "hyprlauncher"
 _G.volumeMixer = "pipemixer"
 _G.taskManager = "btop"
 _G.workspaceGroupSize = 10
-_G.random_wallpaper = "/home/tigerclips1/.config/hypr/scripts/random_wallpaper.sh"
+_G.random_wallpaper = os.getenv("HOME") .. "/.config/hypr/scripts/random_wallpaper.sh"
 
 -- Apps
 -- -- PULL REQUESTS ADDING MORE WILL NOT BE ACCEPTED, CONFIG FOR YOURSELF

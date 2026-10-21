@@ -194,6 +194,8 @@ hl.animation({
     bezier = "menu_decel",
     style = "slide"
 })
+
+
 -- specialWorkspace
 hl.animation({
     leaf = "specialWorkspaceIn",
@@ -202,6 +204,15 @@ hl.animation({
     bezier = "emphasizedDecel",
     style = "slidevert"
 })
+
+hl.animation({
+    leaf = "windowsMove",
+    enabled = true,
+    speed = 7,
+    bezier = "menu_decel",
+    style = "slide"
+})
+
 hl.animation({
     leaf = "specialWorkspaceOut",
     enabled = true,

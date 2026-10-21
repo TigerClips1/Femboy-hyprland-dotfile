@@ -8,10 +8,13 @@
 -- Or execute your favorite apps at launch like this:
 --
 
+local home = os.getenv("HOME")
+
 hl.on("hyprland.start", function () 
-    hl.exec_cmd("/home/tigerclips1/.config/hypr/scripts/rainbow_border.sh")
-    hl.exec_cmd("/home/tigerclips1/.config/hypr/scripts/xdg-fix.sh")
+    hl.exec_cmd(home .. "/.config/hypr/scripts/rainbow_border.sh")
+    hl.exec_cmd(home .. "/.config/hypr/scripts/xdg-fix.sh")
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("hyprlauncher --daemon")
 
     hl.exec_cmd("hypridle")
     hl.exec_cmd("dbus-update-activation-environment --all")

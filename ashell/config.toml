@@ -16,8 +16,8 @@ directory = "~/.local/log" # (default: $XDG_RUNTIME_DIR) supports ~ and $VAR
 
 [modules]
 left = [ [ "appLauncher", "Updates", "Workspaces" ] ]
-center = [ "WindowTitle" ]
-right = [ "SystemInfo", [ "Tray", "Tempo", "Privacy", "Settings" ] ]
+center = [ "WindowTitle", "Clipboard", "MediaPlayer"]
+right = [ "SystemInfo", [ "Tray", "Tempo","Privacy", "Settings" ] ]
 
 # ── Updates ───────────────────────────────────────────────────────────────────
 
@@ -32,7 +32,7 @@ interval = 3600             # seconds (default); effective minimum at runtime is
 visibility_mode = "All"           # "All" (default), "MonitorSpecific", "MonitorSpecificExclusive"
 indicator_format = "Name"         # "Name" (default) or "NameAndIcons" to show app icons
 group_by_monitor = false          # (default)
-enable_workspace_filling = false  # (default)
+enable_workspace_filling = true  # (default)
 max_workspaces = 10               # (default: None) max number of workspaces when filling
 
 # ── Custom Modules ────────────────────────────────────────────────────────────
@@ -40,7 +40,7 @@ max_workspaces = 10               # (default: None) max number of workspaces whe
 [[CustomModule]]
 name = "appLauncher"
 icon = "󰣇"
-command = "hyprlauncher"
+command = "rofi -show drun"
 icons = { "regex" = "icon" }   # map regex on `alt` to icon
 alert = "regex"                # show alert dot when `alt` matches regex
 type = "Button"                # (default) "Button" or "Text"
@@ -100,6 +100,18 @@ grouped = true           # (default) group notifications by app
 toast = true              # (default) enable toast popups
 toast_position = "TopCenter"  # (default) "TopLeft", "TopRight", "TopCenter", "BottomLeft", "BottomRight", "BottomCenter"
 
+# New recommended way
+[[CustomModule]]
+name = "Clipboard"
+icon = "📋"
+command = "cliphist-rofi-img | wl-copy"
+
+
+[media_player]
+indicator_format = "Icon"
+indicator_visualizer = "Before" # "Before", "After", or "Background"
+visualizer_framerate = 30
+
 # ── Settings ──────────────────────────────────────────────────────────────────
 
 [settings]
@@ -143,8 +155,9 @@ enabled = false   # (default)
 # ── Appearance ────────────────────────────────────────────────────────────────
 
 [appearance]
-primary_color = "#ff43b4"
-success_color = "#57cef8"
+font_name = "JetBrains Mono Nerd Font"
+primary_color = "#fb3daf"
+success_color = "#cc3fff"
 warning_color = "#e0af68"
 danger_color = "#f7768e"
 text_color = "#ffffff"

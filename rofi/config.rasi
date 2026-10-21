@@ -1,0 +1,47 @@
+/**
+ * ~/.config/rofi/config.rasi
+ * Launch apps:  rofi -show drun
+ * Switch modes while open: Shift+Left / Shift+Right
+ */
+configuration {
+    /* what rofi can show (first one is the default for plain `rofi`) */
+    modes:                "drun,run,window,filebrowser";
+
+    /* look and feel */
+    font:                 "JetBrains Mono Nerd Font";
+    show-icons:           true;
+    /* icon-theme:        "Papirus"; */   /* uncomment if you have an icon theme installed */
+    display-drun:         "Apps";
+    display-run:          "Run";
+    display-window:       "Windows";
+    display-filebrowser:  "Files";
+    drun-display-format:  "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    window-format:        "{w}  {c}  {t}";
+
+    /* searching */
+    matching:             "fuzzy";
+    sorting-method:       "fzf";
+    case-smart:           true;
+    drun-match-fields:    "name,generic,exec,categories,keywords";
+
+    /* behaviour */
+    terminal:             "kitty";
+    drun-show-actions:    false;
+    cycle:                true;
+    hover-select:         true;
+    click-to-exit:        true;
+    disable-history:      false;
+    max-history-size:     50;
+    sidebar-mode:         false;   /* set true to show Apps / Run / Windows buttons */
+
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+@theme "~/.config/rofi/themes/femboy.rasi"

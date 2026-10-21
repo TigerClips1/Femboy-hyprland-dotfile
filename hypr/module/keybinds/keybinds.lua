@@ -110,10 +110,17 @@ hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen_state({ internal = 0, client
 hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
 
 for i = 1, 10 do
-    hl.bind("SUPER + SHIFT + " .. (i % 10), function()
-        hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
+    local target = workspace_in_group(i)
+    local key = i % 10
+
+    hl.bind("SUPER + SHIFT + " .. key, function()
+        hl.dispatch(hl.dsp.window.move({
+            workspace = target,
+            follow = true
+        }))
     end, { description = "Window: Send to workspace " .. i })
 end
+
 
 --# keypad numbers
 for i = 1, 10 do
@@ -236,5 +243,6 @@ hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd(textEditor), { description = "App: 
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd(volumeMixer), { description = "App: Volume mixer" })
 hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
 hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(random_wallpaper), { description = "App: Randomize wallpaper" })
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })

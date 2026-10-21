@@ -1,29 +1,61 @@
 /diagnose.result
 /cache
 
-# Ignore Python cache files
+# Python cache files
 __pycache__/
 *.py[cod]
 
 /dots/.config/quickshell/ii/.qmlls.ini
-
-# exp-update
 /.update-lock
-
-# custom os-release
 /os-release
 
-# Emacs auto backup file
+# Editor and generated backup files
 *~
-trashrc
-pavucontrol.ini
-dolphinrc
+.vscode/
+*.bak
+*.bak-*
 
-Code 
-systemd
-pulse
-mozilla
-kdeconnect
-dconf
-.vscode
-keepassxc
+# Local application data and profiles
+/Claude/
+/Code/
+/heroic/
+/kimi-code-app/
+/onlyoffice/
+/torbrowser/
+/vesktop/
+/session/
+/kdeconnect/
+/keepassxc/
+/mozilla/
+/pulse/
+/dconf/
+/systemd/
+
+# Local credentials, device state, and app databases
+*.pem
+*.key
+id_rsa
+id_ed25519
+*.kdbx
+*.env
+.env
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*-journal
+*-wal
+Cookies*
+Local State
+Trust Tokens*
+machineid
+*.lock
+
+# Local desktop preferences
+/trashrc
+/pavucontrol.ini
+/dolphinrc
+*.dirs
+*.locale

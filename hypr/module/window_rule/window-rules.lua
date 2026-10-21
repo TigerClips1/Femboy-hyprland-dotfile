@@ -69,8 +69,11 @@ hl.window_rule({
   opacity = "1.0 override 0.3 override 0.2 override",
 })
 
+
+
 -- Set rounding to 10 for kitty
 hl.window_rule({ match = { class = "kitty" }, rounding = 10 })
+
 
 -- Fix pinentry losing focus
 hl.window_rule({

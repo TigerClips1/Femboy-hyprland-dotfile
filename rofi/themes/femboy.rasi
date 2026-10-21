@@ -1,0 +1,148 @@
+/**
+ * Femboy pride flag rofi theme (soft / translucent)
+ * Palette: pink #D260A5, light pink #E4AFCD, white, blue #57CEF8
+ * Transparency needs a compositor (picom, KWin, Hyprland, etc.)
+ **/
+* {
+    /* flag palette */
+    flag-pink:       #d260a5;
+    flag-lightpink:  #e4afcd;
+    flag-blue:       #57cef8;
+    deep-blue:       #1a8ec2;   /* darker flag blue so selected text stays readable */
+
+    /* translucent surfaces: change the last % to adjust opacity */
+    window-bg:       rgba ( 232, 168, 208, 85 % );
+    window-border:   rgba ( 210, 96, 160, 35 % );
+    row-alt-bg:      rgba ( 255, 255, 255, 22 % );
+    row-selected-bg: rgba ( 255, 255, 255, 60 % );
+    input-bg:        rgba ( 255, 255, 255, 38 % );
+
+    foreground:      #492d40;
+    muted:           #8a5a7c;
+
+    background-color: transparent;
+    text-color:       @foreground;
+    spacing:          2;
+}
+
+window {
+    background-color: @window-bg;
+    border:           2px;
+    border-color:     @window-border;
+    border-radius:    18px;
+    padding:          10px;
+}
+mainbox {
+    background-color: transparent;
+    border:           0;
+    padding:          0;
+    spacing:          8px;
+}
+
+inputbar {
+    background-color: @input-bg;
+    border-radius:    12px;
+    padding:          8px 12px;
+    spacing:          0px;
+    children:         [ "prompt","textbox-prompt-colon","entry","overlay","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
+}
+prompt {
+    spacing:    0;
+    text-color: @flag-pink;
+}
+textbox-prompt-colon {
+    margin:     0px 0.3em 0px 0px;
+    expand:     false;
+    str:        ":";
+    text-color: @flag-pink;
+}
+entry {
+    cursor:            text;
+    spacing:           0;
+    text-color:        @foreground;
+    placeholder:       "Type to filter";
+    placeholder-color: @muted;
+}
+num-filtered-rows, num-rows { expand: false; text-color: @muted; }
+textbox-num-sep { expand: false; str: "/"; text-color: @muted; }
+case-indicator  { spacing: 0; text-color: @foreground; }
+overlay {
+    padding:          0px 0.2em;
+    margin:           0px 0.2em;
+    background-color: @flag-pink;
+    text-color:       #ffffff;
+}
+
+message {
+    padding:       6px 10px;
+    border-radius: 10px;
+    background-color: @input-bg;
+}
+textbox { text-color: @foreground; }
+
+listview {
+    background-color: transparent;
+    border:           0;
+    padding:          2px 0px 0px;
+    spacing:          3px;
+    fixed-height:     0;
+    scrollbar:        true;
+}
+scrollbar {
+    width:         4px;
+    padding:       0;
+    border:        0;
+    handle-width:  6px;
+    handle-color:  @flag-pink;
+    border-radius: 6px;
+}
+
+element {
+    padding:       6px 10px;
+    spacing:       8px;
+    border:        0;
+    border-radius: 10px;
+    cursor:        pointer;
+}
+element normal.normal, element normal.active, element normal.urgent {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element alternate.normal, element alternate.active, element alternate.urgent {
+    background-color: @row-alt-bg;
+    text-color:       @foreground;
+}
+element normal.active, element alternate.active { text-color: @deep-blue; }
+element normal.urgent, element alternate.urgent { text-color: @flag-pink; }
+
+/* selected row: soft white glass, colored text */
+element selected.normal, element selected.active, element selected.urgent {
+    background-color: @row-selected-bg;
+    text-color:       @deep-blue;
+}
+element selected.urgent { text-color: @flag-pink; }
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    highlight:        bold #d260a5;
+    cursor:           inherit;
+}
+element-icon {
+    background-color: transparent;
+    size:             1.1em;
+    text-color:       inherit;
+    cursor:           inherit;
+}
+
+mode-switcher { spacing: 6px; }
+button {
+    padding:       6px 10px;
+    border-radius: 10px;
+    text-color:    @foreground;
+    cursor:        pointer;
+}
+button selected {
+    background-color: @row-selected-bg;
+    text-color:       @deep-blue;
+}
