@@ -36,7 +36,7 @@ hl.config({
         rounding_power = 2.5,
         rounding = 18,
         active_opacity = 0.9,      -- Opacity of the focused window (0.0 to 1.0)
-        inactive_opacity = 0.8 ,   -- Opacity of unfocused windows (0.0 to 1.0)
+        inactive_opacity = 0.15 ,   -- Opacity of unfocused windows (0.0 to 1.0)
 
 
         -- Blur behind translucent windows

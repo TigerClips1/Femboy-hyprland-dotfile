@@ -177,7 +177,7 @@ hl.layer_rule({ match = { namespace = "launcher" }, ignore_alpha = 0.5})
 hl.layer_rule({ match = { namespace = "notifications" }, blur = true})
 hl.layer_rule({ match = { namespace = "notifications" }, ignore_alpha = 0.69})
 hl.layer_rule({ match = { namespace = "logout_dialog" }, blur = true}) -- wlogout
-
+-- hl.window_rule({ match = { class = "^(kitty)$" }, float = true, center = true, size = {"800", "500"} })
 
 -- Launchers need to be FAST
 hl.layer_rule({ match = { namespace = "gtk4-layer-shell" }, no_anim = true})
