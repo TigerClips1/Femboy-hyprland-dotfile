@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Starship prompt. Most modules use a bracketed format like `[symbol value]`;
+# add/remove module tables below to change what the prompt shows.
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 

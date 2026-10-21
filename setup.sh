@@ -35,6 +35,10 @@ REPO_CORE=(
     pipewire pipewire-pulse wireplumber easyeffects
     ttf-jetbrains-mono-nerd
     lua
+    # screenshots, notifications and keybind helpers
+    grim jq bc libnotify xdg-user-dirs
+    # ashell: update checks (checkupdates), update terminal, network/bluetooth/brightness
+    pacman-contrib alacritty networkmanager nm-connection-editor bluetui brightnessctl
 )
 AUR_CORE=(ashell pipemixer bibata-cursor-theme)
 

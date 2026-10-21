@@ -1,6 +1,9 @@
 from kittens.tui.handler import result_handler
 from kitty.boss import Boss
 
+# Kitty kitten used by the search feature to scroll to a marked position.
+# It has no UI; the work happens in handle_result.
+
 
 def main(args: list[str]) -> None:
     pass

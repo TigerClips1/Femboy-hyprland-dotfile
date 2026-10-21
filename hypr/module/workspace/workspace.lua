@@ -12,5 +12,6 @@
 -- hl.workspace_rule({ workspace = "5", on_created_empty = "[float] firefox" })
 -- hl.workspace_rule({ workspace = "special:scratchpad", on_created_empty = "foot" })
 -- hl.workspace_rule({ workspace = "15", animation = "slidevert", default_name = "slider" })
+-- Workspace 2 uses the scrolling layout, workspace 3 uses dwindle (others use the default layout)
 hl.workspace_rule({ workspace = "2", layout = "scrolling" })
 hl.workspace_rule({ workspace = "3", layout = "dwindle" })

@@ -21,6 +21,7 @@ right = [ "SystemInfo", [ "Tray", "Tempo","Privacy", "Settings" ] ]
 
 # ── Updates ───────────────────────────────────────────────────────────────────
 
+# Package update checks; needs pacman-contrib (checkupdates), paru and alacritty
 [updates]
 check_cmd = "checkupdates; paru -Qua"
 update_cmd = 'alacritty -e bash -c "paru; echo Done - Press enter to exit; read" &'
@@ -37,6 +38,7 @@ max_workspaces = 10               # (default: None) max number of workspaces whe
 
 # ── Custom Modules ────────────────────────────────────────────────────────────
 
+# Left-bar launcher button; opens rofi's application list
 [[CustomModule]]
 name = "appLauncher"
 icon = "󰣇"
@@ -100,7 +102,7 @@ grouped = true           # (default) group notifications by app
 toast = true              # (default) enable toast popups
 toast_position = "TopCenter"  # (default) "TopLeft", "TopRight", "TopCenter", "BottomLeft", "BottomRight", "BottomCenter"
 
-# New recommended way
+# Clipboard history picker; needs a `cliphist-rofi-img` script on PATH plus cliphist and wl-clipboard
 [[CustomModule]]
 name = "Clipboard"
 icon = "📋"
@@ -108,6 +110,7 @@ command = "cliphist-rofi-img | wl-copy"
 
 
 [media_player]
+# Now playing widget (MPRIS) with an audio visualizer
 indicator_format = "Icon"
 indicator_visualizer = "Before" # "Before", "After", or "Background"
 visualizer_framerate = 30
@@ -116,6 +119,7 @@ visualizer_framerate = 30
 
 [settings]
 enable_tooltips = true   # (default) set to false to disable hover tooltips
+# Pauses media, then locks. `nixGL` is only needed on Nix; remove it on other distros.
 lock_cmd = "playerctl --all-players pause; nixGL hyprlock &"
 shutdown_cmd = "shutdown now"                   # (default)
 suspend_cmd = "systemctl suspend"               # (default)

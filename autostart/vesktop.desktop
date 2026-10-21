@@ -1,4 +1,5 @@
 [Desktop Entry]
+# Starts Vesktop (Discord client) at login via XDG autostart
 Type=Application
 Name=Vesktop
 Comment=Vesktop autostart script

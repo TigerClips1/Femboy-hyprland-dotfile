@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+# Sets a random wallpaper from WALLPAPER_DIR via hyprpaper, skipping the current one.
 
 WALLPAPER_DIR="$HOME/Picture"
 
+# Name of the wallpaper currently loaded, so it is not picked again
 CURRENT_WALL=$(hyprctl hyprpaper listloaded 2>/dev/null | head -n 1)
 CURRENT_NAME=$(basename -- "$CURRENT_WALL")
 

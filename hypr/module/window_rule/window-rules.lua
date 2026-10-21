@@ -57,13 +57,13 @@ hl.window_rule({
   border_color = "rgb(FF0000) rgb(880808)",
 })
 
--- Set border color to yellow when title contains Hyprland
+-- Set border color to pink when title contains Hyprland
 hl.window_rule({
   match        = { title = ".*Hyprland.*" },
   border_color = "rgb(ff69b4)",
 })
 
--- Set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
+-- Opacity for kitty: 1.0 active, 0.3 inactive, 0.2 fullscreen ("override" ignores global opacity)
 hl.window_rule({
   match   = { class = "kitty" },
   opacity = "1.0 override 0.3 override 0.2 override",
@@ -85,7 +85,7 @@ hl.window_rule({
 hl.window_rule({match = {class = "^()$", title = "^()$" },                   no_blur = true })
 
 
--- Floating
+-- Floating: dialogs (file pickers, save/open prompts) and utility apps open centered and floating
 hl.window_rule({match = {title = "^(Open File)(.*)$" },                      center = true})
 hl.window_rule({match = {title = "^(Open File)(.*)$" },                      float = true})
 hl.window_rule({match = {title = "^(Select a File)(.*)$" },                  center = true})
@@ -135,7 +135,7 @@ hl.window_rule({match = {class = "^(plasma-changeicons)$" }, move = {999999, 999
 hl.window_rule({match = {class = ".*" }, suppress_event = "maximize"})
 hl.window_rule({match = {class = "^dev\\.warp\\.Warp$" }, tile = true})
 
--- Picture-in-Picture
+-- Picture-in-Picture: float, pin, keep aspect ratio, and park in the bottom-right corner
 hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" }, float = true})
 hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" }, keep_aspect_ratio = true})
 hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" }, move = {"(monitor_w*0.73)", "(monitor_h*0.72)"} })
@@ -143,12 +143,12 @@ hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)
 hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" }, float = true})
 hl.window_rule({match = {title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" }, pin = true})
 
--- Screen sharing
+-- Screen sharing: keep the "is sharing your screen" indicator floating, pinned, at bottom center
 hl.window_rule({match = {title = ".*is sharing (a window|your screen).*" }, float = true})
 hl.window_rule({match = {title = ".*is sharing (a window|your screen).*" }, pin = true})
 hl.window_rule({match = {title = ".*is sharing (a window|your screen).*" }, move = {"(monitor_w*.5-window_w*.5)", "(monitor_h-window_h-12)"} })
 
--- --- Tearing ---
+-- --- Tearing --- (`immediate` lets games/Wine apps tear for lower latency; needs allow_tearing)
 hl.window_rule({match = {title = ".*\\.exe" }, immediate = true})
 hl.window_rule({match = {title = ".*minecraft.*" }, immediate = true})
 hl.window_rule({match = {class = "^(steam_app).*" }, immediate = true})

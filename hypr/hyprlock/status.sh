@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Prints battery status text for the lock screen (used by hyprlock.conf).
+# Prints nothing on machines without a battery.
 
 ############ Variables ############
 enable_battery=false

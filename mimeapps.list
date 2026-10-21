@@ -1,3 +1,4 @@
 
+# Default application for opening Discord links (vesktop is a Discord client)
 [Default Applications]
 x-scheme-handler/discord=vesktop.desktop

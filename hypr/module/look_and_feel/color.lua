@@ -1,3 +1,4 @@
+-- Border colors and background. look_and_feel.lua is loaded afterwards and overrides these.
 hl.config({
         general = {
             border_size = 2,
@@ -10,7 +11,6 @@ hl.config({
             layout = dwindle,
         },
     },
-    
     misc = {
         background_color = "rgba(121318FF)",
     },

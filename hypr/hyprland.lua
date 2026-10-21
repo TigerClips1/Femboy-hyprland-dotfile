@@ -6,19 +6,22 @@
 
 
 
-require("module.autostart.autostart")
-require("module.environment-verbiles.environment-variables")
-require("module.input.input")
-require("module.keybinds.keybinds")
-require("module.look_and_feel.color")
-require("module.look_and_feel.look_and_feel")
-require("module.misc.misc")
-require("module.monitors.monitors")
-require("module.permission.permissions")
-require("module.verables.verables")
-require("module.window_rule.window-rules")
-require("module.workspace.workspace")
-require("hyprland.lib")
+-- Main Hyprland entry point: loads each config module below.
+-- Edit the modules under hypr/module/ rather than this file.
+
+require("module.autostart.autostart")        -- programs launched at startup
+require("module.environment-verbiles.environment-variables") -- env vars (cursor, Qt, XDG)
+require("module.input.input")                -- keyboard, touchpad, gestures
+require("module.keybinds.keybinds")          -- keyboard shortcuts
+require("module.look_and_feel.color")        -- border and background colors
+require("module.look_and_feel.look_and_feel") -- gaps, rounding, blur, animations
+require("module.misc.misc")                  -- miscellaneous behavior
+require("module.monitors.monitors")          -- display resolution and refresh rate
+require("module.permission.permissions")     -- screencopy/plugin permissions
+require("module.verables.verables")          -- default programs and shared variables
+require("module.window_rule.window-rules")   -- per-window behavior
+require("module.workspace.workspace")        -- per-workspace layouts
+require("hyprland.lib")                      -- helper functions (workspace groups)
 
 
 

@@ -3,6 +3,7 @@
 ---- LOOK AND FEEL ----
 -----------------------
 
+-- General layout: gaps, borders, snapping, decoration, and base animations
 hl.config({
     general = {
         -- Gaps and border
@@ -13,13 +14,15 @@ hl.config({
         border_size = 3,
 
         col = {
+            -- Rainbow gradient on the focused window (animated by scripts/rainbow_border.sh)
             active_border = "rgb(ff0000)", "rgb(ffff00)",  "rgb(00ff00)", "rgb(00ffff)" ,"rgb(0000ff)", "rgb(ff00ff)", "rgb(ff0000)", "0deg",
             inactive_border = "rgba(31313600)"
         },
-        resize_on_border = true,
+        resize_on_border = true, -- drag window edges to resize
 
         no_focus_fallback = true,
         allow_tearing = true, -- This just allows the `immediate` window rule to work
+        -- Snap floating windows to edges/other windows
         snap = {
             enabled = true,
             window_gap = 4,
@@ -27,6 +30,7 @@ hl.config({
             respect_gaps = true
         }
     },
+    -- Window rounding, opacity, blur, shadow, and dimming
     decoration = {
         -- 2 = circle, higher = squircle, 4 = very obvious squircle
         rounding_power = 2.5,
@@ -35,6 +39,7 @@ hl.config({
         inactive_opacity = 0.8 ,   -- Opacity of unfocused windows (0.0 to 1.0)
 
 
+        -- Blur behind translucent windows
         blur = {
             enabled = true,
             xray = true,
@@ -52,6 +57,7 @@ hl.config({
             input_methods = true,
             input_methods_ignorealpha = 0.8
         },
+        -- Drop shadow
         shadow = {
             enabled = true,
             range = 20,
@@ -65,11 +71,13 @@ hl.config({
         dim_strength = 0.05,
         dim_special = 0.2
     },
+    -- Base animation switch; individual animations are defined below
     animations = {
         enabled = true,
         bezier = linear, 0.0, 0.0, 1.0, 1.0,
         animation = bordercolor, 1, 10, linear,
     },
+    -- Dwindle (binary tree) layout
     dwindle = {
         preserve_split = true,
         smart_split = false,
@@ -77,7 +85,7 @@ hl.config({
         -- precise_mouse_move = true,
     },
 })
--- Curves
+-- Bezier curves used by the animations below (names reused in `bezier =`)
 hl.curve("expressiveFastSpatial", {
     type = "bezier",
     points = {{0.42, 1.67}, {0.21, 0.90}}
@@ -114,7 +122,7 @@ hl.curve("stall", {
     type = "bezier",
     points = {{1, -0.1}, {0.7, 0.85}}
 })
--- Configs
+-- Animation definitions: speed is in ds (1 ds = 100ms), lower is faster
 -- windows
 hl.animation({
     leaf = "windowsIn",

@@ -2,18 +2,22 @@
 ---- KEYBINDINGS ----
 ---------------------
 
+-- Keybindings. SUPER is the main modifier. `locked = true` binds work on the lock screen,
+-- `repeating` binds repeat while held, `mouse = true` binds are mouse drags.
+
 require("hyprland.lib")
 require("module.verables.verables")
 
 --##! Utilities
-hl.bind("SUPER + SHIFT + S",hl.dsp.exec_cmd( "hyprshot --freeze --clipboard-only --mode region --silent"))
+-- Region screenshot (frozen screen) straight to the clipboard
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot --freeze --clipboard-only --mode region --silent"))
 
 
 --# Color picker
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"),
     { description = "Utilities: Pick color #RRGGBB >> clipboard" })
 
---# Fullscreen screenshot
+--# Fullscreen screenshot (of the monitor holding the active workspace)
 local grimhyprctl = "grim -o \"$(hyprctl activeworkspace -j | jq -r '.monitor')\""
 hl.bind("Print", hl.dsp.exec_cmd(grimhyprctl .. " - | wl-copy"),
     { locked = true, description = "Utilities: Screenshot >> clipboard" })
@@ -24,7 +28,7 @@ hl.bind("CTRL + Print", hl.dsp.exec_cmd(
 hl.bind("CTRL + Print", hl.dsp.exec_cmd(grimhyprctl .. " - | wl-copy"), { locked = true, non_consuming = true })
 
 --##! Screen
---# Zoom
+--# Zoom (screen magnifier via cursor:zoom_factor, clamped between 1.0x and 3.0x)
 local function zoomfunction(value)
     local zoomvalue = hl.get_config("cursor:zoom_factor")
     if (zoomvalue + value) > 3.0 then
@@ -38,11 +42,12 @@ end
 hl.bind("SUPER + Minus", function() zoomfunction(-0.3) end, { repeating = true, description = "Screen: Zoom out" })
 hl.bind("SUPER + Equal", function() zoomfunction(0.3) end, { repeating = true, description = "Screen: Zoom in" })
 
---# Zoom with keypad
+--# Zoom with keypad (keypad minus / plus by keycode)
 hl.bind("SUPER + code:82", function() zoomfunction(-0.3) end, { repeating = true })
 hl.bind("SUPER + code:86", function() zoomfunction(0.3) end, { repeating = true })
 
 --##! Media
+-- If there is no next track, seek to the end of the current one instead
 local mediaNextCommand =
 "playerctl next || playerctl position `bc <<< \"100 * $(playerctl metadata mpris:length) / 1000000 / 100\"`"
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(mediaNextCommand), { locked = true, description = "Media: Next track" })
@@ -65,21 +70,24 @@ hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ togg
     { locked = true, description = "Media: Toggle mic" })
 
 --##! Window
---# Focusing
+--# Focusing and mouse (SUPER + left/middle drag moves, right drag resizes)
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Window: Move" })
 hl.bind("SUPER + mouse:274", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Window: Resize" })
+-- Focus with SUPER + arrows
 for i = 1, 4 do
     local arrowkey = { "Left", "Right", "Up", "Down" }
     local focusdir = { "l", "r", "u", "d" }
     hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }),
         { description = "Window: Focus " .. arrowkey[i] })
 end
+-- Focus left/right with SUPER + [ and ]
 for i = 1, 2 do
     local arrowkey = { "BracketLeft", "BracketRight" }
     local focusdir = { "l", "r" }
     hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
 end
+-- Move the window with SUPER + SHIFT + arrows
 for i = 1, 4 do
     local arrowkey = { "Left", "Right", "Up", "Down" }
     local focusdir = { "l", "r", "u", "d" }
@@ -87,6 +95,7 @@ for i = 1, 4 do
         { description = "Window: Move " .. arrowkey[i] })
 end
 
+-- Alt+F4 is intentionally not mapped to close; it only shows a reminder
 hl.bind("ALT + F4",
     function()
         hl.exec_cmd(
@@ -109,6 +118,7 @@ hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen_state({ internal = 0, client
     { description = "Window: Fullscreen spoof" })
 hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
 
+-- SUPER + 1..0: send the window to workspace 1..10 of the current group and follow it
 for i = 1, 10 do
     local target = workspace_in_group(i)
     local key = i % 10
@@ -122,7 +132,7 @@ for i = 1, 10 do
 end
 
 
---# keypad numbers
+--# keypad numbers: SUPER + ALT + keypad digit sends the window without following it
 for i = 1, 10 do
     local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
     hl.bind("SUPER + ALT + code:" .. numpadkey[i], function()
@@ -130,6 +140,7 @@ for i = 1, 10 do
     end)
 end
 
+-- Send the window to the previous/next workspace with SUPER + SHIFT/ALT + scroll
 for i = 1, 4 do
     local key = { "SUPER + SHIFT + mouse_", "SUPER + ALT + mouse_" }
     local keycombos = { key[1] .. "up", key[1] .. "down", key[2] .. "up", key[2] .. "down" }
@@ -150,12 +161,13 @@ for i = 1, 4 do
     hl.bind(keycombos[i], hl.dsp.window.move({ workspace = prefix[i] .. "1" })) -- # [hidden]
 end
 
+-- Scratchpad: SUPER + ALT + S sends a window there, SUPER + S toggles it
 hl.bind("SUPER + ALT + S",
     hl.dsp.window.move({ workspace = "special:special", follow = false }), { description = "Window: Send to scratchpad" })
 hl.bind("CTRL + SUPER + S", hl.dsp.workspace.toggle_special("special"))
 
 --##! Workspace
---# Switching
+--# Switching: SUPER + 1..0 focuses workspace 1..10 of the current group
 for i = 1, 10 do
     hl.bind("SUPER + " .. (i % 10), function()
         hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
@@ -176,6 +188,8 @@ for i = 1, 10 do
     end)
 end
 
+-- Relative switching: CTRL+SUPER+arrows (previous/next), +ALT (monitor-relative),
+-- SUPER+Page Up/Down and SUPER+scroll
 for i = 1, 2 do
     local keys = { "Left", "Right" }
     local prefix = { "r-", "r+" }
@@ -209,6 +223,7 @@ for i = 1, 4 do
 end
 
 --##! Virtual machines
+-- SUPER + ALT + F1 toggles a submap that disables most keybinds so they reach the VM
 hl.define_submap("virtual-machine", function()
     hl.bind("SUPER + ALT + F1", function()
         local currentsubmap = hl.get_current_submap()
@@ -231,7 +246,7 @@ hl.bind("SUPER + SHIFT + L", hl.dsp.exec_cmd("systemctl suspend || loginctl susp
 hl.bind("CTRL + SHIFT + ALT + SUPER + Delete", hl.dsp.exec_cmd("systemctl poweroff || loginctl poweroff"),
     { description = "Session: Shut down" }) -- # [hidden] Power off
 
---##! Apps
+--##! Apps (program names come from module/verables/verables.lua)
 hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal), { description = "App: Terminal" })
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
@@ -243,6 +258,7 @@ hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd(textEditor), { description = "App: 
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd(volumeMixer), { description = "App: Volume mixer" })
 hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
 hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(random_wallpaper), { description = "App: Randomize wallpaper" })
+-- Application launcher
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })
