@@ -12,7 +12,7 @@ local home = os.getenv("HOME")
 
 hl.on("hyprland.start", function () 
     -- Portals, wallpaper, launcher, idle handling, status bar, night light
-    hl.exec_cmd(home .. "/.config/hypr/scripts/rainbow_border.sh")
+    hl.exec_cmd(home .. "/.config/hypr/scripts/femboyflag_border.sh")
     hl.exec_cmd(home .. "/.config/hypr/scripts/xdg-fix.sh")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hyprlauncher --daemon")
