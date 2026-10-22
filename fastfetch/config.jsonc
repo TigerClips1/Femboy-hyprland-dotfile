@@ -14,7 +14,7 @@
   // Key color red, no separator between key and value
   "display": {
     "separator": " ",
-    "color": "red"
+    "color": "#4169e1"
   },
 	// Output: a hardware section, then a software section, then a color palette
 	"modules": [
