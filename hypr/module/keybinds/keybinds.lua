@@ -120,15 +120,15 @@ hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
 
 -- SUPER + 1..0: send the window to workspace 1..10 of the current group and follow it
 for i = 1, 10 do
-    local target = workspace_in_group(i)
-    local key = i % 10
-
+    local index = i
+    local key = index % 10
     hl.bind("SUPER + SHIFT + " .. key, function()
+        local target = workspace_in_group(index)
         hl.dispatch(hl.dsp.window.move({
             workspace = target,
             follow = true
         }))
-    end, { description = "Window: Send to workspace " .. i })
+    end, { description = "Window: Send to workspace " .. index })
 end
 
 
