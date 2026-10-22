@@ -131,7 +131,6 @@ for i = 1, 10 do
     end, { description = "Window: Send to workspace " .. index })
 end
 
-
 --# keypad numbers: SUPER + ALT + keypad digit sends the window without following it
 for i = 1, 10 do
     local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
@@ -260,5 +259,4 @@ hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = 
 hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(random_wallpaper), { description = "App: Randomize wallpaper" })
 -- Application launcher
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-
 -- hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })
