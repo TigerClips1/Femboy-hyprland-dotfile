@@ -16,8 +16,8 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd(home .. "/.config/hypr/scripts/xdg-fix.sh")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hyprlauncher --daemon")
-
     hl.exec_cmd("hypridle")
+
     -- Export the session environment to D-Bus/systemd so portals and services see it
     hl.exec_cmd("dbus-update-activation-environment --all")
     hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP") -- Some fix idk
@@ -34,4 +34,5 @@ hl.on("hyprland.start", function ()
 
     -- Cursor
     hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
+    
 end)

@@ -12,7 +12,6 @@ require("module.verables.verables")
 -- Region screenshot (frozen screen) straight to the clipboard
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot --freeze --clipboard-only --mode region --silent"))
 
-
 --# Color picker
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"),
     { description = "Utilities: Pick color #RRGGBB >> clipboard" })
@@ -39,6 +38,7 @@ local function zoomfunction(value)
         hl.config({ cursor = { zoom_factor = zoomvalue + value } })
     end
 end
+
 hl.bind("SUPER + Minus", function() zoomfunction(-0.3) end, { repeating = true, description = "Screen: Zoom out" })
 hl.bind("SUPER + Equal", function() zoomfunction(0.3) end, { repeating = true, description = "Screen: Zoom in" })
 
@@ -81,12 +81,14 @@ for i = 1, 4 do
     hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }),
         { description = "Window: Focus " .. arrowkey[i] })
 end
+
 -- Focus left/right with SUPER + [ and ]
 for i = 1, 2 do
     local arrowkey = { "BracketLeft", "BracketRight" }
     local focusdir = { "l", "r" }
     hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
 end
+
 -- Move the window with SUPER + SHIFT + arrows
 for i = 1, 4 do
     local arrowkey = { "Left", "Right", "Up", "Down" }
