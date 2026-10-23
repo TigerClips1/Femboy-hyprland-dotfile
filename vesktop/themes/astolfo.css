@@ -1,9 +1,9 @@
 /**
 * @name Astolfo Theme
-* @author Fandrest
+* @author TigerClips1
 * @description A simple Astolfo theme for y'all degenerates
-* @source https://github.com/TheXploler/Astolfo-Theme
-* @version 0.2
+* @source https://github.com/TheXploler/Astolfo-Theme // this is the repo my theme base off of credit to TheXploler.
+* @version 1.0
 *
 * Selectors match the stable class-name prefix (e.g. [class*="app_"]) instead of
 * Discord's hashed suffixes, so they keep working across Discord updates.
