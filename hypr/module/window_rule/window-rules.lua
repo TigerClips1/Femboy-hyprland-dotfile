@@ -177,6 +177,10 @@ hl.layer_rule({ match = { namespace = "launcher" }, ignore_alpha = 0.5})
 hl.layer_rule({ match = { namespace = "notifications" }, blur = true})
 hl.layer_rule({ match = { namespace = "notifications" }, ignore_alpha = 0.69})
 hl.layer_rule({ match = { namespace = "logout_dialog" }, blur = true}) -- wlogout
+hl.layer_rule({ match = { namespace = "rofi" }, animation = "fadeIn" }) -- rofi fades in/out
+hl.layer_rule({ match = { namespace = "rofi" }, animation = "fadeOut" }) -- rofi fades in/out
+hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
+hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.3 })
 -- hl.window_rule({ match = { class = "^(kitty)$" }, float = true, center = true, size = {"800", "500"} })
 
 -- Launchers need to be FAST

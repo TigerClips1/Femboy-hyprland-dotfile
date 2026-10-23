@@ -8,17 +8,17 @@
     flag-pink:       #d260a5;
     flag-lightpink:  #e4afcd;
     flag-blue:       #57cef8;
-    deep-blue:       #1a8ec2;   /* darker flag blue so selected text stays readable */
+    deep-blue:       #8be3ff;
 
-    /* translucent surfaces: change the last % to adjust opacity */
-    window-bg:       rgba ( 232, 168, 208, 85 % );
-    window-border:   rgba ( 210, 96, 160, 35 % );
-    row-alt-bg:      rgba ( 255, 255, 255, 22 % );
-    row-selected-bg: rgba ( 255, 255, 255, 60 % );
-    input-bg:        rgba ( 255, 255, 255, 38 % );
+    /* translucent dark-purple surfaces */
+    window-bg:       rgba ( 39, 26, 54, 60 % );
+    window-border:   rgba ( 210, 96, 160, 55 % );
+    row-alt-bg:      rgba ( 255, 255, 255, 8 % );
+    row-selected-bg: rgba ( 210, 96, 160, 28 % );
+    input-bg:        rgba ( 255, 255, 255, 10 % );
 
-    foreground:      #492d40;
-    muted:           #8a5a7c;
+    foreground:      #f5eaf8;
+    muted:           #c3a9cf;
 
     background-color: transparent;
     text-color:       @foreground;
@@ -26,10 +26,8 @@
 }
 
 window {
-    width:            1100px;
-    height:           650px;
-    background-color: #e8a8d0;
-    background-image: url("/home/tigerclips1/Pictures/Wallpaper/wallpaperrofi.jpg", width);
+    width:            700px;
+    background-color: @window-bg;
     border:           2px;
     border-color:     @window-border;
     border-radius:    18px;
@@ -38,24 +36,16 @@ window {
 mainbox {
     background-color: transparent;
     border:           0;
-    padding:          14px;
+    padding:          0;
     spacing:          0;
-    orientation:      horizontal;
-    children:         [ "wallpaper-space", "content" ];
+    children:         [ "body" ];
 }
-/* empty left side so the character stays visible */
-wallpaper-space {
-    expand:           true;
-    background-color: transparent;
-}
-content {
-    expand:           false;
-    width:            560px;
+
+body {
     orientation:      vertical;
-    spacing:          8px;
     padding:          10px;
-    border-radius:    14px;
-    background-color: rgba ( 255, 245, 250, 78 % );
+    spacing:          8px;
+    background-color: transparent;
     children:         [ "inputbar", "message", "listview", "mode-switcher" ];
 }
 
@@ -105,8 +95,9 @@ listview {
     border:           0;
     padding:          2px 0px 0px;
     spacing:          3px;
-    fixed-height:     true;
-    lines:            12;
+    fixed-height:     false;
+    dynamic:          true;
+    lines:            8;
     scrollbar:        true;
 }
 scrollbar {

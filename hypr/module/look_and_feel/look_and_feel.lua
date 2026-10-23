@@ -170,9 +170,9 @@ hl.animation({
 hl.animation({
     leaf = "layersIn",
     enabled = true,
-    speed = 2.7,
+    speed = 3,
     bezier = "emphasizedDecel",
-    style = "popin 93%"
+    style = "fade"
 })
 hl.animation({
     leaf = "layersOut",
@@ -185,8 +185,8 @@ hl.animation({
 hl.animation({
     leaf = "fadeLayersIn",
     enabled = true,
-    speed = 0.5,
-    bezier = "menu_decel"
+    speed = 3,
+    bezier = "emphasizedDecel"
 })
 hl.animation({
     leaf = "fadeLayersOut",

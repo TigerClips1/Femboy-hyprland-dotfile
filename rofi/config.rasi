@@ -38,6 +38,12 @@ configuration {
     max-history-size:     50;
     sidebar-mode:         false;   /* set true to show Apps / Run / Windows buttons */
 
+    /* Left/Right switch modes (All/Apps/Run/...); Ctrl+B / Ctrl+F still move the text cursor */
+    kb-mode-previous:     "Left,Shift+Left,Control+ISO_Left_Tab";
+    kb-mode-next:         "Right,Shift+Right,Control+Tab";
+    kb-move-char-back:    "Control+b";
+    kb-move-char-forward: "Control+f";
+
     timeout {
         action: "kb-cancel";
         delay:  0;
