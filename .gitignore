@@ -28,6 +28,10 @@ __pycache__/
 /vesktop/settings/
 /vesktop/*.json
 
+/vesktop/SingletonCookie
+/vesktop/SingletonLock
+/vesktop/SingletonSocket
+
 /session/
 /kdeconnect/
 /keepassxc/

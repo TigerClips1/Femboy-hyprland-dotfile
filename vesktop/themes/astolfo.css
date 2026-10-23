@@ -1,0 +1,309 @@
+/**
+* @name Astolfo Theme
+* @author Fandrest
+* @description A simple Astolfo theme for y'all degenerates
+* @source https://github.com/TheXploler/Astolfo-Theme
+* @version 0.2
+*
+* Selectors match the stable class-name prefix (e.g. [class*="app_"]) instead of
+* Discord's hashed suffixes, so they keep working across Discord updates.
+*/
+:root, .theme-dark, .theme-darker, .theme-light, .theme-midnight, .visual-refresh {
+    /* Background Color Palette */
+    --dark-red: #271A36;
+    --gold: rgba(39, 26, 54, 0.6);
+    --light-pink: #E4AFCD;
+    --black: #271A36;
+    --white: #F5EAF8;
+    --pink-blush: #D260A5;
+    --pink-red: #D260A5;
+    --pale-peach: #8BE3FF;
+    --flag-blue: #57CEF8;
+    --deep-blue: #8BE3FF;
+    --foreground: #F5EAF8;
+    --muted: #C3A9CF;
+
+    /* My version of the Astolfo Color Palette  to match with the rice*/
+    --cape-inside: #82453a;
+    --straps-accents: #c87066;
+    --cape-outside: #ffffff;
+    --hood-scarf: #e1d6d0;
+    --armor-accents: #f1d3b2;
+    --armor-accents-secondary: #b99874;
+    --armor-accents-tertiary: #c8bebe;
+    --underclothes-main: #454545;
+    --hair-ties: #665f5c;
+    --hair-main: #ffc8be;
+    --hair-accent: #fffafa;
+    --eyes-primary: #6e5064;
+    --eyes-secondary: #f0c4da;
+    --skin-primary: #fbf0e2;
+    --skin-secondary: #eec2a8;
+
+    --status-danger: #D260A5 !important;
+
+    /* Transparent Background (current Discord variables) */
+    --background-base-lowest: rgba(39, 26, 54, 0.6);
+    --background-base-lower: rgba(39, 26, 54, 0.6);
+    --background-base-low: rgba(39, 26, 54, 0.6);
+    --background-surface-high: rgba(39, 26, 54, 0.6);
+    --background-surface-higher: rgba(39, 26, 54, 0.6);
+    --background-surface-highest: rgba(39, 26, 54, 0.6);
+    --chat-background-default: rgba(39, 26, 54, 0.6);
+    --channeltextarea-background: transparent;
+    --background-mod-subtle: rgba(255, 255, 255, 0.08);
+    --background-mod-normal: rgba(210, 96, 160, 0.2);
+    --background-mod-strong: rgba(210, 96, 160, 0.28);
+    --text-default: var(--foreground);
+    --text-muted: var(--muted);
+
+    /* Legacy variables (older Discord builds) */
+    --background-primary: rgba(39, 26, 54, 0.6);
+    --background-secondary: rgba(39, 26, 54, 0.6);
+    --background-secondary-alt: rgba(39, 26, 54, 0.6);
+    --background-tertiary: rgba(39, 26, 54, 0.6);
+    --background-modifier-selected: rgba(210, 96, 160, 0.28);
+    --header-secondary: var(--foreground) !important;
+    --header-primary: var(--foreground) !important;
+}
+
+/* Backgrounds */
+:is([class^="app_"], [class*=" app_"]) {
+    background-image: url(https://images4.alphacoders.com/906/906149.png);
+    background-size: cover;
+}
+
+/* Server List */
+[class*="itemsContainer_"] {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+/* Pill Selector */
+[class*="pill_"] :is([class^="item_"], [class*=" item_"]) {
+    background-color: var(--pink-blush) !important;
+}
+
+/* Discord Logo */
+[class*="childWrapper_"] {
+    background-image: url(https://raw.githubusercontent.com/TheXploler/Resources/main/asto.svg) !important;
+    background-color: var(--pink-blush) !important;
+}
+[class*="childWrapper_"] svg {
+    display: none;
+}
+
+/* Discovery Button */
+[class*="circleIconButton_"] {
+    background-color: var(--pink-blush) !important;
+    border: var(--light-pink) 3px solid;
+    border-radius: 100%;
+}
+
+/* Folder */
+[class*="guildSeparator_"] {
+    background-color: var(--pink-blush);
+}
+
+:is([class^="folder_"], [class*=" folder_"]) {
+    background-color: rgba(210, 96, 160, 0.28) !important;
+    border-radius: 100%;
+}
+
+[class*="expandedFolderBackground_"] {
+    background-color: rgba(210, 96, 160, 0.28) !important;
+    border: var(--light-pink) 3px solid;
+    left: 9.5px;
+}
+
+/* Message Area */
+[class*="scrollableContainer_"] {
+    background-color: rgba(210, 96, 160, 0.28) !important;
+    border: var(--light-pink) 3px solid;
+    border-radius: 25px/25px;
+}
+
+[class*="channelTextArea_"] {
+    background-color: transparent !important;
+}
+
+[class*="channelTextArea_"] :is([class^="button_"], [class*=" button_"]) {
+    background-color: rgba(210, 96, 160, 0.28) !important;
+    border: var(--light-pink) 3px solid;
+    bottom: 2.5px;
+    border-radius: 100%;
+}
+
+[class*="placeholder_"] {
+    color: var(--foreground) !important;
+}
+
+/* Stubborn whitening SVG */
+[class*="attachButtonInner_"], [class*="lottieIcon_"], [class*="upperContainer_"],
+[class*="scrollableContainer_"] :is([class^="inner_"], [class*=" inner_"]),
+.vc-spotify-button-row, [class*="menu_"] [class*="iconContainer_"],
+[class*="searchBar_"], [class*="inboxIcon_"], [class*="titleContainer_"],
+[class*="threadIcon_"], [class*="quickswitcher_"] :is([class^="inner_"], [class*=" inner_"]) {
+    filter: brightness(130%) contrast(100%);
+}
+
+/* Top Bar */
+[class*="subtitleContainer_"] {
+    background-color: rgba(210, 96, 160, 0.28);
+    border-radius: 25px / 25px;
+    border: var(--light-pink) 3px solid;
+    --background-primary: transparent;
+    margin: 1.5%;
+}
+
+[class*="upperContainer_"] {
+    opacity: 0.9;
+}
+
+:is([class^="search_"], [class*=" search_"]) {
+    background-color: rgba(210, 96, 160, 0.28) !important;
+    border: var(--light-pink) 3px solid;
+    border-radius: 25px/25px;
+}
+
+/* Server Header */
+[class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) {
+    background-color: rgba(210, 96, 160, 0.28);
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    margin: 5%;
+    box-shadow: none !important;
+}
+
+/* Message Date Divider */
+[class*="messagesWrapper_"] :is([class^="divider_"], [class*=" divider_"]),
+[class*="messagesWrapper_"] :is([class^="divider_"], [class*=" divider_"]) > :is([class^="content_"], [class*=" content_"]) {
+    background-color: var(--pink-red);
+    color: var(--foreground) !important;
+}
+
+[class*="messagesWrapper_"] :is([class^="divider_"], [class*=" divider_"])[class*="isUnread"] {
+    background-color: var(--pink-red) !important;
+}
+
+/* Unread Message */
+[class*="newMessagesBar_"] {
+    background-color: var(--pink-red) !important;
+    border-radius: 25px/25px;
+    color: var(--foreground) !important;
+}
+
+/* User */
+[class*="panels_"] :is([class^="container_"], [class*=" container_"]) {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 25px/25px;
+    border: none !important;
+}
+
+[class*="panels_"], [class*="panels_"] * {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+[class*="panels_"] :is([class^="container_"], [class*=" container_"]) :is([class^="container_"], [class*=" container_"]),
+[class*="panels_"] :is([class^="avatarWrapper_"], [class*=" avatarWrapper_"]) {
+    background-color: transparent !important;
+}
+
+#vc-spotify-player {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    margin-bottom: 4%;
+}
+
+/* Popout */
+:is([class^="menu_"], [class*=" menu_"]) {
+    background-color: var(--gold) !important;
+    color: var(--foreground) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    opacity: 0.9;
+}
+[class*="menu_"] :is([class^="separator_"], [class*=" separator_"]) {
+    background-color: var(--pink-red) !important;
+}
+[class*="menu_"] :is([class^="label_"], [class*=" label_"]) {
+    color: var(--foreground) !important;
+}
+
+[class*="menu_"] :is([class^="focused_"], [class*=" focused_"]) {
+    background-color: var(--pink-blush) !important;
+    border-radius: 25px/25px;
+    color: var(--deep-blue) !important;
+}
+
+[class*="recentMentionsPopout_"], [class*="messagesPopoutWrap_"], [class*="messageGroupWrapper_"],
+[class*="quickswitcher_"], [class*="searchResultsWrap_"] {
+    background-color: var(--gold) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    opacity: 0.9;
+}
+[class*="friendRequestsButton_"] {
+    background-color: var(--pink-blush) !important;
+    border: var(--light-pink) 3px solid;
+    border-radius: 25px/25px;
+    color: var(--foreground) !important;
+}
+[class*="channelHeader_"], [class*="chat_"] > :is([class^="title_"], [class*=" title_"]) {
+    background-color: var(--gold) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    opacity: 0.9;
+    color: var(--foreground) !important;
+}
+[class*="channelHeader_"] [class*="subtext_"] {
+    color: var(--foreground) !important;
+}
+[class*="messagesPopoutWrap_"] :is([class^="messages_"], [class*=" messages_"]) {
+    background-color: var(--gold) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+[class*="timestamp_"], [class*="menu_"] [class*="subtext_"], [class*="resultsGroup_"], [class*="displayUsername_"] {
+    color: var(--foreground) !important;
+}
+[class*="searchBox_"] {
+    background-color: var(--pink-blush) !important;
+    border-radius: 25px/25px;
+    border: var(--light-pink) 3px solid;
+    opacity: 0.9;
+}
+[class*="quickswitcher_"] :is([class^="input_"], [class*=" input_"]), [class*="sectionHeader_"] {
+    filter: brightness(500%);
+}
+
+[class*="createButton_"] {
+    background-color: var(--pink-red) !important;
+    border-radius: 25px/25px;
+    color: var(--foreground) !important;
+}
+
+[class*="queryContainer_"] {
+    background-color: var(--gold) !important;
+    opacity: 0.9;
+}
+
+[class*="mentioned_"] {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: var(--foreground) !important;
+}
+[class*="sidebar_"] :is([class^="link_"], [class*=" link_"]):hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: var(--deep-blue) !important;
+}
+[class*="contentWrapper_"] {
+    opacity: 0.95;
+}
+[class*="botTag_"], [class*="botTagCozy_"], [class*="botTagRegular_"] {
+    background-color: var(--pink-red) !important;
+}
