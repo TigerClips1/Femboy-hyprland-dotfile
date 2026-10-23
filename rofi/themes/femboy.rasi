@@ -26,17 +26,37 @@
 }
 
 window {
-    background-color: @window-bg;
+    width:            1100px;
+    height:           650px;
+    background-color: #e8a8d0;
+    background-image: url("/home/tigerclips1/Pictures/Wallpaper/wallpaperrofi.jpg", width);
     border:           2px;
     border-color:     @window-border;
     border-radius:    18px;
-    padding:          10px;
+    padding:          0;
 }
 mainbox {
     background-color: transparent;
     border:           0;
-    padding:          0;
+    padding:          14px;
+    spacing:          0;
+    orientation:      horizontal;
+    children:         [ "wallpaper-space", "content" ];
+}
+/* empty left side so the character stays visible */
+wallpaper-space {
+    expand:           true;
+    background-color: transparent;
+}
+content {
+    expand:           false;
+    width:            560px;
+    orientation:      vertical;
     spacing:          8px;
+    padding:          10px;
+    border-radius:    14px;
+    background-color: rgba ( 255, 245, 250, 78 % );
+    children:         [ "inputbar", "message", "listview", "mode-switcher" ];
 }
 
 inputbar {
@@ -85,7 +105,8 @@ listview {
     border:           0;
     padding:          2px 0px 0px;
     spacing:          3px;
-    fixed-height:     0;
+    fixed-height:     true;
+    lines:            12;
     scrollbar:        true;
 }
 scrollbar {
@@ -135,7 +156,7 @@ element-icon {
     cursor:           inherit;
 }
 
-mode-switcher { spacing: 6px; }
+mode-switcher { spacing: 6px; background-color: transparent; }
 button {
     padding:       6px 10px;
     border-radius: 10px;

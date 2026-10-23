@@ -1,11 +1,14 @@
 /**
  * ~/.config/rofi/config.rasi
- * Launch apps:  rofi -show drun
+ * Launch everything:  rofi -show combi
  * Switch modes while open: Shift+Left / Shift+Right
  */
 configuration {
     /* what rofi can show (first one is the default for plain `rofi`) */
-    modes:                "drun,run,window,filebrowser";
+    modes:                "combi,drun,run,window,filebrowser";
+    combi-modes:          "drun,run";
+    combi-display-format: "<span alpha='55%' size='small'>{mode}</span>  {text}";
+    display-combi:        "All";
 
     /* look and feel */
     font:                 "JetBrains Mono Nerd Font";
@@ -26,6 +29,7 @@ configuration {
 
     /* behaviour */
     terminal:             "kitty";
+    run-shell-command:    "{terminal} -e {cmd}";   /* Shift+Enter on a CLI binary in run mode opens it in kitty */
     drun-show-actions:    false;
     cycle:                true;
     hover-select:         true;
