@@ -10,10 +10,10 @@
 */
 :root, .theme-dark, .theme-darker, .theme-light, .theme-midnight, .visual-refresh {
     /* Background Color Palette */
-    --dark-red: #271A36;
-    --gold: rgba(39, 26, 54, 0.6);
+    --dark-red: #8E3A73;
+    --gold: rgba(176, 70, 140, 0.72);
     --light-pink: #E4AFCD;
-    --black: #271A36;
+    --black: #8E3A73;
     --white: #F5EAF8;
     --pink-blush: #D260A5;
     --pink-red: #D260A5;
@@ -21,7 +21,7 @@
     --flag-blue: #57CEF8;
     --deep-blue: #8BE3FF;
     --foreground: #F5EAF8;
-    --muted: #C3A9CF;
+    --muted: #F3DDEC;
 
     /* My version of the Astolfo Color Palette  to match with the rice*/
     --cape-inside: #82453a;
@@ -43,13 +43,13 @@
     --status-danger: #D260A5 !important;
 
     /* Transparent Background (current Discord variables) */
-    --background-base-lowest: rgba(39, 26, 54, 0.6);
-    --background-base-lower: rgba(39, 26, 54, 0.6);
-    --background-base-low: rgba(39, 26, 54, 0.6);
-    --background-surface-high: rgba(39, 26, 54, 0.6);
-    --background-surface-higher: rgba(39, 26, 54, 0.6);
-    --background-surface-highest: rgba(39, 26, 54, 0.6);
-    --chat-background-default: rgba(39, 26, 54, 0.6);
+    --background-base-lowest: rgba(150, 50, 115, 0.14);
+    --background-base-lower: rgba(150, 50, 115, 0.14);
+    --background-base-low: rgba(150, 50, 115, 0.14);
+    --background-surface-high: rgba(150, 50, 115, 0.14);
+    --background-surface-higher: rgba(150, 50, 115, 0.14);
+    --background-surface-highest: rgba(150, 50, 115, 0.14);
+    --chat-background-default: rgba(150, 50, 115, 0.14);
     --channeltextarea-background: transparent;
     --background-mod-subtle: rgba(255, 255, 255, 0.08);
     --background-mod-normal: rgba(210, 96, 160, 0.2);
@@ -58,19 +58,76 @@
     --text-muted: var(--muted);
 
     /* Legacy variables (older Discord builds) */
-    --background-primary: rgba(39, 26, 54, 0.6);
-    --background-secondary: rgba(39, 26, 54, 0.6);
-    --background-secondary-alt: rgba(39, 26, 54, 0.6);
-    --background-tertiary: rgba(39, 26, 54, 0.6);
+    --background-primary: rgba(150, 50, 115, 0.14);
+    --background-secondary: rgba(150, 50, 115, 0.14);
+    --background-secondary-alt: rgba(150, 50, 115, 0.14);
+    --background-tertiary: rgba(150, 50, 115, 0.14);
     --background-modifier-selected: rgba(210, 96, 160, 0.28);
     --header-secondary: var(--foreground) !important;
     --header-primary: var(--foreground) !important;
+
+    /* readable text */
+    --bg-overlay-floating: rgba(176, 70, 140, 0.8);
+    --bg-overlay-1: rgba(176, 70, 140, 0.8);
+    --bg-overlay-2: rgba(176, 70, 140, 0.8);
+    --bg-overlay-3: rgba(176, 70, 140, 0.8);
+    --background-surface-high: rgba(176, 70, 140, 0.8);
+    --text-subtle: #ffffff;
+    --text-strong: #ffffff;
+    --text-link: #ffffff;
+    --icon-default: #ffffff;
+    --icon-subtle: #ffffff;
+    --icon-strong: #ffffff;
+    --interactive-icon-default: #ffffff;
+    --channels-default: #F5EAF8;
+    --interactive-normal: #F5EAF8;
+    --interactive-muted: #E8CBE0;
+    --interactive-hover: #ffffff;
+    --text-normal: #F5EAF8;
+    --text-secondary: #F3DDEC;
+
+    /* no borders */
+    --border-subtle: transparent;
+    --border-normal: transparent;
+    --border-strong: transparent;
+    --border-faint: transparent;
+    --background-modifier-accent: transparent;
+
+    /* things that were still black (attachment cards, popouts, profile card, modals) */
+    --background-floating: rgba(176, 70, 140, 0.8);
+    --card-background-default: rgba(176, 70, 140, 0.55);
+    --card-background-hover: rgba(200, 90, 160, 0.65);
+    --card-primary-bg: rgba(176, 70, 140, 0.55);
+    --embed-background: rgba(176, 70, 140, 0.45);
+    --modal-background: rgba(150, 55, 120, 0.9);
+    --modal-footer-background: rgba(130, 45, 105, 0.9);
+    --profile-body-background-color: rgba(150, 55, 120, 0.85);
+    --profile-body-background-hover: rgba(176, 70, 140, 0.9);
+    --profile-gradient-overlay-color: rgba(150, 55, 120, 0.4);
+    --profile-gradient-card-background: rgba(176, 70, 140, 0.6);
+    --input-background: rgba(176, 70, 140, 0.35);
+    --scrollbar-thin-thumb: rgba(255, 255, 255, 0.35);
 }
 
 /* Backgrounds */
 :is([class^="app_"], [class*=" app_"]) {
-    background-image: url(https://i.ibb.co/cSCZfGsX/wp5172430-astolfo-wallpapers.jpg);
+    isolation: isolate;
+    background-image: none !important;
+}
+/* Blurred wallpaper (change --wallpaper-blur to taste; 0 = sharp) */
+:is([class^="app_"], [class*=" app_"])::before {
+    --wallpaper-blur: 5px;
+    content: "";
+    position: absolute;
+    inset: -40px;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(120, 30, 90, 0.22), rgba(120, 30, 90, 0.22)),
+        url(https://i.ibb.co/cSCZfGsX/wp5172430-astolfo-wallpapers.jpg);
     background-size: cover;
+    background-position: center;
+    filter: blur(var(--wallpaper-blur));
 }
 
 /* Server List */
@@ -96,7 +153,8 @@
 /* Discovery Button */
 [class*="circleIconButton_"] {
     background-color: var(--pink-blush) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     border-radius: 100%;
 }
 
@@ -112,14 +170,16 @@
 
 [class*="expandedFolderBackground_"] {
     background-color: rgba(210, 96, 160, 0.28) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     left: 9.5px;
 }
 
 /* Message Area */
 [class*="scrollableContainer_"] {
     background-color: rgba(210, 96, 160, 0.28) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     border-radius: 25px/25px;
 }
 
@@ -129,7 +189,8 @@
 
 [class*="channelTextArea_"] :is([class^="button_"], [class*=" button_"]) {
     background-color: rgba(210, 96, 160, 0.28) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     bottom: 2.5px;
     border-radius: 100%;
 }
@@ -151,7 +212,8 @@
 [class*="subtitleContainer_"] {
     background-color: rgba(210, 96, 160, 0.28);
     border-radius: 25px / 25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     --background-primary: transparent;
     margin: 1.5%;
 }
@@ -162,7 +224,8 @@
 
 :is([class^="search_"], [class*=" search_"]) {
     background-color: rgba(210, 96, 160, 0.28) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     border-radius: 25px/25px;
 }
 
@@ -170,7 +233,8 @@
 [class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) {
     background-color: rgba(210, 96, 160, 0.28);
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     margin: 5%;
     box-shadow: none !important;
 }
@@ -214,7 +278,8 @@
 #vc-spotify-player {
     background-color: rgba(255, 255, 255, 0.08) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     margin-bottom: 4%;
 }
 
@@ -223,7 +288,8 @@
     background-color: var(--gold) !important;
     color: var(--foreground) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     opacity: 0.9;
 }
 [class*="menu_"] :is([class^="separator_"], [class*=" separator_"]) {
@@ -243,19 +309,22 @@
 [class*="quickswitcher_"], [class*="searchResultsWrap_"] {
     background-color: var(--gold) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     opacity: 0.9;
 }
 [class*="friendRequestsButton_"] {
     background-color: var(--pink-blush) !important;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     border-radius: 25px/25px;
     color: var(--foreground) !important;
 }
 [class*="channelHeader_"], [class*="chat_"] > :is([class^="title_"], [class*=" title_"]) {
     background-color: var(--gold) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     opacity: 0.9;
     color: var(--foreground) !important;
 }
@@ -265,7 +334,8 @@
 [class*="messagesPopoutWrap_"] :is([class^="messages_"], [class*=" messages_"]) {
     background-color: var(--gold) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     opacity: 0.9;
     margin-top: 5px;
 }
@@ -275,7 +345,8 @@
 [class*="searchBox_"] {
     background-color: var(--pink-blush) !important;
     border-radius: 25px/25px;
-    border: var(--light-pink) 3px solid;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35);
     opacity: 0.9;
 }
 [class*="quickswitcher_"] :is([class^="input_"], [class*=" input_"]), [class*="sectionHeader_"] {
@@ -306,4 +377,417 @@
 }
 [class*="botTag_"], [class*="botTagCozy_"], [class*="botTagRegular_"] {
     background-color: var(--pink-red) !important;
+}
+
+/* File attachment cards */
+[class*="fileAttachment"], [class*="attachmentContainer"] [class*="container_"],
+[class*="mosaicItem"] [class*="container_"], [class*="messageAttachment"] {
+    background-color: rgba(176, 70, 140, 0.55) !important;
+    border: none !important;
+    border-radius: 14px;
+}
+
+/* Search bar: mostly transparent, slight pink tint */
+[class*="searchBox_"] {
+    background-color: rgba(210, 96, 165, 0.12) !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+}
+:is([class^="search_"], [class*=" search_"]) {
+    background-color: rgba(210, 96, 165, 0.12) !important;
+    box-shadow: none !important;
+}
+:is([class^="search_"], [class*=" search_"]) * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+:is([class^="search_"], [class*=" search_"]) input,
+:is([class^="search_"], [class*=" search_"]) [class*="placeholder_"],
+:is([class^="search_"], [class*=" search_"]) [class*="public-DraftEditorPlaceholder"] {
+    color: var(--foreground) !important;
+}
+
+/* v7: menus. Only the shell + groups get a fill; rows and everything inside stay untouched so icons/status dots survive. */
+[role="menu"] {
+    background: rgb(186, 84, 148) !important;
+    background-image: none !important;
+    border: none !important;
+    border-radius: 18px !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(60, 10, 45, 0.4) !important;
+    opacity: 1 !important;
+}
+[role="menu"] [role="group"],
+[class*="menu"] [class*="scroller"],
+[class*="menu"] [class*="group"] {
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+[role="menu"] [role="separator"], [role="menu"] [class*="separator_"] {
+    background: rgba(255, 255, 255, 0.18) !important;
+}
+[role="menu"] [role="menuitem"] { background: transparent !important; color: var(--foreground) !important; }
+[role="menu"] [role="menuitem"]:hover,
+[role="menu"] [role="menuitem"][class*="focused"] {
+    background: rgba(105, 30, 95, 0.55) !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+}
+
+/* v8: hover/selected states that are actually visible */
+[class*="sidebar_"] :is([class^="link_"], [class*=" link_"]):hover,
+[class*="sidebar_"] [class*="interactive"]:hover,
+[class*="sidebar_"] [class*="channel_"]:hover,
+[class*="sidebar_"] [class*="dm_"]:hover {
+    background-color: rgba(105, 30, 95, 0.4) !important;
+    color: #ffffff !important;
+}
+[class*="sidebar_"] [class*="selected"],
+[class*="sidebar_"] [aria-selected="true"] {
+    background-color: rgba(105, 30, 95, 0.55) !important;
+}
+[class*="message_"]:hover {
+    background-color: rgba(105, 30, 95, 0.2) !important;
+}
+
+/* v9: bring back fill on the black menu blocks (profile menu groups), without boxing the rows */
+[class*="menu"][class*="_"]:not([role="menuitem"]):not([class*="item" i]):not([class*="label" i]):not([class*="icon" i]):not([class*="separator" i]):not([class*="hint" i]):not([class*="subtext" i]) {
+    background: rgb(186, 84, 148) !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+[class*="menu"][class*="group" i],
+[class*="menu"] [class*="group" i] {
+    background: rgb(186, 84, 148) !important;
+    background-image: none !important;
+    border-radius: 14px !important;
+}
+/* anything menu-ish nested inside a row must not paint its own box */
+[role="menuitem"] [class*="menu"],
+[role="menuitem"] [class*="label" i],
+[role="menuitem"] [class*="subtext" i] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+/* keep hover visible on top of the fill */
+[role="menu"] [role="menuitem"]:hover,
+[role="menu"] [role="menuitem"][class*="focused"] {
+    background: rgba(105, 30, 95, 0.55) !important;
+    border-radius: 12px !important;
+}
+
+/* v11: popouts, submenus and cards must be solid (they were inheriting the see-through base layers) */
+[class*="popout" i]:not([class*="Wrap" i]),
+[class*="hovercard" i], [class*="layer"] > [class*="menu"],
+[class*="orb" i][class*="card" i], [class*="orb" i][class*="popout" i], [class*="orb" i][class*="container" i] {
+    background: rgb(186, 84, 148) !important;
+    background-image: none !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+}
+[role="menu"], [role="dialog"], [role="tooltip"] {
+    opacity: 1 !important;
+}
+
+/* v13: menu text/icons always bright and fully opaque */
+[role="menu"] [role="menuitem"],
+[role="menu"] [role="menuitem"] * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+[role="menu"] [role="menuitem"] svg { fill: currentColor; }
+
+/* v14: the dim grey menu text. Force full-white, full-opacity text + icons anywhere inside menu-ish containers. */
+[class*="menu" i], [class*="menu" i] *,
+[role="menu"], [role="menu"] * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 2px rgba(70, 10, 50, 0.45);
+}
+[class*="menu" i] svg, [class*="menu" i] svg *,
+[role="menu"] svg, [role="menu"] svg * {
+    color: #ffffff !important;
+    fill: currentColor;
+    opacity: 1 !important;
+}
+
+/* v17: member list - no outlines/shadows/boxes around rows */
+[class*="members" i], [class*="members" i] *,
+[class*="member_"], [class*="member_"] * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+[class*="member_"], [class*="members" i] [class*="layout_"],
+[class*="members" i] [class*="container_"] {
+    background: transparent !important;
+}
+[class*="member_"]:hover, [class*="members" i] [class*="layout_"]:hover {
+    background: rgba(105, 30, 95, 0.4) !important;
+    border-radius: 12px;
+}
+
+/* v18: server list - no outline/border/shadow/box when an icon is selected or focused */
+[data-list-item-id^="guildsnav"], [data-list-item-id^="guildsnav"] *,
+[class*="listItem_"] [class*="wrapper_"], [class*="listItem_"] [class*="wrapper_"] *,
+[class*="blobContainer_"], [class*="blobContainer_"] * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+[data-list-item-id^="guildsnav"]:focus, [data-list-item-id^="guildsnav"]:focus-visible,
+[data-list-item-id^="guildsnav"] *:focus, [data-list-item-id^="guildsnav"] *:focus-visible,
+[class*="listItem_"] :focus, [class*="listItem_"] :focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+[class*="listItem_"] [class*="selected"] , [class*="listItem_"] [class*="selected"] * {
+    background-color: transparent !important;
+}
+
+/* v19: clear "this is selected" cue without a border */
+/* 1) the pill on the left edge: white so it pops against the pink */
+[class*="pill_"] :is([class^="item_"], [class*=" item_"]) {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8) !important;
+}
+/* 2) selected server icon: soft glow + a bit brighter (glow, not an outline) */
+[class*="listItem_"] [class*="wrapper_"][class*="selected"],
+[class*="listItem_"] [class*="selected"] [class*="blobContainer_"],
+[class*="listItem_"] [class*="selected"] [class*="icon_"] {
+    filter: brightness(1.12) !important;
+}
+/* 3) unselected icons slightly dimmer so the selected one stands out */
+[class*="listItem_"] [class*="wrapper_"]:not([class*="selected"]) {
+    opacity: 0.82;
+}
+[class*="listItem_"] [class*="wrapper_"]:not([class*="selected"]):hover {
+    opacity: 1;
+}
+
+/* v20: my own left-edge selection bar (doesn't depend on Discord's pill element) */
+[class*="listItem_"] {
+    position: relative !important;
+}
+[class*="listItem_"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 5px;
+    height: 0;
+    transform: translateY(-50%);
+    border-radius: 0 6px 6px 0;
+    background: #ffe6f4;
+    box-shadow: 0 0 8px rgba(255, 230, 244, 0.85);
+    transition: height 0.15s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+/* selected server: tall bar */
+[class*="listItem_"]:has([class*="selected"])::before {
+    height: 40px;
+}
+/* hover (not selected): short bar */
+[class*="listItem_"]:hover:not(:has([class*="selected"]))::before {
+    height: 20px;
+}
+
+/* v21: title bar icons (back/forward, inbox, help) white instead of gray */
+[class*="titleBar"], [class*="titleBar"] *,
+[class*="bar_"][class*="Windows"], [class*="bar_"][class*="Windows"] * {
+    --interactive-normal: #ffffff;
+    --interactive-muted: #ffffff;
+    --interactive-hover: #ffffff;
+    --icon-default: #ffffff;
+    --icon-subtle: #ffffff;
+    --header-secondary: #ffffff;
+}
+[class*="titleBar"] svg, [class*="titleBar"] svg *,
+[class*="titleBar"] [class*="icon"], [class*="titleBar"] [class*="button"],
+[class*="bar_"][class*="Windows"] svg, [class*="bar_"][class*="Windows"] svg * {
+    color: #ffffff !important;
+    fill: currentColor;
+    opacity: 1 !important;
+}
+/* greyed-out (nothing to go back/forward to) stays a bit dimmer so you can tell */
+[class*="titleBar"] [aria-disabled="true"], [class*="titleBar"] [aria-disabled="true"] * {
+    opacity: 0.55 !important;
+}
+
+/* v22: title bar icons, broader selectors. Direct child of the app root = the title bar (avoids sidebar_/toolbar_ false matches). */
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"],
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"] *,
+[class*="titlebar" i], [class*="titlebar" i] *,
+[class*="winButton"], [class*="winButton"] *,
+[class*="leading_"] [class*="icon"], [class*="trailing_"] [class*="icon"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    --interactive-normal: #ffffff;
+    --interactive-muted: #ffffff;
+    --interactive-hover: #ffffff;
+    --icon-default: #ffffff;
+    --icon-subtle: #ffffff;
+}
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"] svg,
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"] svg *,
+[class*="titlebar" i] svg, [class*="titlebar" i] svg *,
+[class*="winButton"] svg, [class*="winButton"] svg * {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"] [aria-disabled="true"],
+:is([class^="app_"], [class*=" app_"]) > [class*="bar_"] [aria-disabled="true"] * {
+    opacity: 0.55 !important;
+}
+
+/* v23: all UI icons white instead of gray (sidebar Friends/Nitro/Shop/Quests, title bar, header toolbar) */
+
+/* 1) every icon colour variable Discord uses, old and new names */
+:root, .theme-dark, .theme-darker, .theme-light, .theme-midnight, .visual-refresh {
+    --icon-primary: #ffffff;
+    --icon-secondary: #ffffff;
+    --icon-tertiary: #ffffff;
+    --icon-muted: #ffffff;
+    --icon-default: #ffffff;
+    --icon-subtle: #ffffff;
+    --icon-strong: #ffffff;
+    --channel-icon: #ffffff;
+    --channels-default: #ffffff;
+    --interactive-icon-default: #ffffff;
+    --interactive-icon-hover: #ffffff;
+    --interactive-icon-active: #ffffff;
+    --interactive-normal: #ffffff;
+    --interactive-muted: #ffffff;
+    --interactive-hover: #ffffff;
+    --interactive-active: #ffffff;
+    --header-muted: #ffffff;
+}
+
+/* 2) sidebar rows (Friends, Nitro, Shop, Quests, channel icons). Icons only, never avatars. */
+[class*="sidebar_"] svg[class*="linkButtonIcon" i],
+[class*="sidebar_"] svg[class*="linkButtonIcon" i] *,
+[class*="sidebar_"] [class*="linkButtonIcon" i],
+[class*="sidebar_"] :is([class^="link_"], [class*=" link_"]) :is([class^="avatar_"], [class*=" avatar_"]) > svg,
+[class*="sidebar_"] :is([class^="link_"], [class*=" link_"]) :is([class^="avatar_"], [class*=" avatar_"]) > svg *,
+[class*="sidebar_"] svg[class*="icon_" i]:not([class*="avatar" i]),
+[class*="sidebar_"] svg[class*="icon_" i]:not([class*="avatar" i]) * {
+    color: #ffffff !important;
+    fill: currentColor !important;
+    opacity: 1 !important;
+}
+
+/* 3) top header toolbar (call, video, pin, add friend, profile, inbox, help) */
+[class*="toolbar_"] svg,
+[class*="toolbar_"] svg *,
+[class*="toolbar_"] [class*="icon_" i] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+[class*="toolbar_"] svg:not([class*="avatar" i]) * {
+    fill: currentColor;
+}
+
+/* 4) title bar: exact class (word-start) so it can't match sidebar_/toolbar_ */
+:is([class^="bar_"], [class*=" bar_"]),
+:is([class^="bar_"], [class*=" bar_"]) * {
+    color: #ffffff !important;
+    --interactive-normal: #ffffff;
+    --interactive-muted: #ffffff;
+    --interactive-hover: #ffffff;
+    --icon-default: #ffffff;
+    --icon-subtle: #ffffff;
+    --icon-primary: #ffffff;
+    --icon-secondary: #ffffff;
+    --icon-tertiary: #ffffff;
+}
+:is([class^="bar_"], [class*=" bar_"]) svg,
+:is([class^="bar_"], [class*=" bar_"]) svg * {
+    color: #ffffff !important;
+    fill: currentColor !important;
+    opacity: 1 !important;
+}
+/* back/forward with nothing to go to: still white, just slightly softer */
+:is([class^="bar_"], [class*=" bar_"]) [aria-disabled="true"],
+:is([class^="bar_"], [class*=" bar_"]) [aria-disabled="true"] * {
+    opacity: 0.65 !important;
+}
+
+
+/* v24: top bar buttons get a darker pink on hover / click */
+:root {
+    --topbar-hover: rgba(135, 40, 105, 0.45);
+    --topbar-active: rgba(110, 28, 88, 0.65);
+}
+
+/* channel header toolbar (call, video, pin, add friend, profile, inbox, help) */
+[class*="toolbar_"] :is([role="button"], button, a, [class*="iconWrapper_"], [class*="clickable" i]):not([class*="search" i]),
+/* title bar (back / forward, inbox, help, window buttons) */
+:is([class^="bar_"], [class*=" bar_"]) :is([role="button"], button, a, [class*="button_" i], [class*="winButton"]) {
+    border-radius: 10px !important;
+    transition: background-color 0.12s ease !important;
+}
+
+[class*="toolbar_"] :is([role="button"], button, a, [class*="iconWrapper_"], [class*="clickable" i]):not([class*="search" i]):hover,
+:is([class^="bar_"], [class*=" bar_"]) :is([role="button"], button, a, [class*="button_" i], [class*="winButton"]):not([aria-disabled="true"]):hover {
+    background-color: var(--topbar-hover) !important;
+}
+
+/* clicked / held / popout open (e.g. pinned messages, inbox) */
+[class*="toolbar_"] :is([role="button"], button, a, [class*="iconWrapper_"], [class*="clickable" i]):not([class*="search" i]):active,
+[class*="toolbar_"] :is([role="button"], button, a, [class*="iconWrapper_"]):not([class*="search" i])[aria-expanded="true"],
+[class*="toolbar_"] [class*="selected" i]:not([class*="search" i]),
+:is([class^="bar_"], [class*=" bar_"]) :is([role="button"], button, a, [class*="button_" i], [class*="winButton"]):not([aria-disabled="true"]):active,
+:is([class^="bar_"], [class*=" bar_"]) :is([role="button"], button, a)[aria-expanded="true"] {
+    background-color: var(--topbar-active) !important;
+}
+
+
+/* v25: no outline/ring around a clicked server icon */
+[class*="listItem_"] *,
+[class*="listItem_"] *::before,
+[class*="listItem_"] *::after {
+    outline: none !important;
+    outline-offset: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+[class*="listItem_"] [class*="focusRing" i],
+[class*="listItem_"] [class*="focus-ring" i] {
+    display: none !important;
+}
+
+
+/* v26: server header matches the top bar; icon gets the same darker pink as the top bar buttons */
+:root {
+    --header-icon-bg: rgba(255, 255, 255, 0.2);
+}
+[class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) {
+    background-color: rgba(176, 70, 140, 0.65) !important;
+    border-radius: 25px !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(60, 10, 45, 0.35) !important;
+}
+/* v27: one clean pill. Everything inside the server header is transparent so no extra lighter/darker boxes stack up. Hover still shows the darker pink. */
+[class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) *:not(svg):not(svg *) {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0;
+}
+[class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) :is([role="button"], button, [class*="clickable" i]):hover {
+    background-color: rgba(135, 40, 105, 0.45) !important;
+    border-radius: 18px !important;
+}
+/* icon only: a first (non-last) wrapper whose only children are the icon svg/img itself. Never the name, never the chevron. */
+[class*="sidebar_"] :is([class^="header_"], [class*=" header_"]) :is(div, span):first-child:not(:last-child):has(> :is(svg, img)):not(:has(> :not(svg):not(img))) {
+    background-color: var(--header-icon-bg) !important;
+    border-radius: 10px !important;
+    padding: 4px !important;
+    box-sizing: content-box !important;
 }
