@@ -22,7 +22,12 @@ __pycache__/
 /kimi-code-app/
 /onlyoffice/
 /torbrowser/
-/vesktop/
+/vesktop/Code Cache/
+/vesktop/Crashpad/
+/vesktop/sessionData/
+/vesktop/settings/
+/vesktop/*.json
+
 /session/
 /kdeconnect/
 /keepassxc/
