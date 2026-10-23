@@ -20,7 +20,8 @@ hl.on("hyprland.start", function ()
 
     -- Export the session environment to D-Bus/systemd so portals and services see it
     hl.exec_cmd("dbus-update-activation-environment --all")
-    hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP") -- Some fix idk
+    -- Refresh theme variables after startup so systemd-activated Qt apps inherit them.
+    hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME")
     hl.exec_cmd("ashell")
     hl.exec_cmd("hyprsunset")
 

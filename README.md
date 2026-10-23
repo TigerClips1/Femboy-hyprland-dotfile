@@ -7,12 +7,15 @@ Personal Linux desktop configuration, centered on Hyprland. The repository conta
 - `hypr/` — Hyprland Lua modules, compositor settings, and helper scripts
 - `kitty/`, `starship.toml`, `fastfetch/`, `btop/`, `cava/` — terminal and system information tools
 - `rofi/`, `superfile/`, `ashell/` — launcher, file manager, and shell-bar settings
+- `Kvantum/`, `qt5ct/`, `qt6ct/`, `oomox/`, `oomox-qtstyleplugin/`, `gtk-4.0/` — Qt and GTK theme settings and palettes
 - `ly/` — display manager configuration
 - Other directories contain optional application settings and themes
 
 ## Use
 
 These files are personal starting points, not a universal or automated installer. Clone the repository somewhere separate from `~/.config`, review the configuration, then copy or symlink only the files and directories for applications you use. Install each application and any referenced scripts or tools first.
+
+On Arch Linux and derivatives, `./setup.sh` installs the core packages required by the configuration, including Qt theme tools. Optional applications can be omitted with `--no-optional`; AUR packages can be omitted with `--no-aur`. The script does not copy files into `~/.config`.
 
 Before enabling the Hyprland configuration, check the monitor name, wallpaper location, autostart commands, key bindings, and application choices in `hypr/`. Some settings depend on the installed applications and hardware.
 

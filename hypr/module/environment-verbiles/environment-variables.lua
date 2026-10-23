@@ -17,7 +17,9 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 local xdg_data_dirs_old = os.getenv("XDG_DATA_DIRS") or ""
 hl.env("XDG_DATA_DIRS", home_dir .. "/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:" .. xdg_data_dirs_old)
 
--- Themes: Qt apps use Wayland (falling back to X11) and the KDE platform theme
+-- Themes: Qt apps use Wayland (falling back to X11) and the Qt5/Qt6 control panels.
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "kde")
 hl.env("XDG_MENU_PREFIX", "plasma-")
+
+-- Match the Qt control-panel plugins and select the configured Kvantum style.
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct:qt6ct", true)

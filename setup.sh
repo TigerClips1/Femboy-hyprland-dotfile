@@ -34,6 +34,8 @@ REPO_CORE=(
     cliphist wl-clipboard playerctl
     pipewire pipewire-pulse wireplumber easyeffects
     ttf-jetbrains-mono-nerd
+    # Qt application theming (Qt5 needs its separate Kvantum style plugin)
+    qt5ct qt6ct kvantum kvantum-qt5
     lua
     # screenshots, notifications and keybind helpers
     grim jq bc libnotify xdg-user-dirs
@@ -87,8 +89,13 @@ else
     echo "Skipped AUR packages: ${AUR_CORE[*]} ${AUR_OPTIONAL[*]}"
 fi
 
-# Helper scripts referenced by the Hyprland config must be executable
-chmod +x "$HOME"/.config/hypr/scripts/*.sh "$HOME"/.config/hypr/hyprlock/*.sh 2>/dev/null || true
+# Make configured helper scripts executable when the dotfiles are already installed.
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+for script in "$CONFIG_DIR"/hypr/scripts/*.sh "$CONFIG_DIR"/hypr/hyprlock/*.sh; do
+    if [[ -f "$script" ]]; then
+        chmod +x "$script"
+    fi
+done
 
 mkdir -p "$HOME/Pictures/Wallpaper"
 
