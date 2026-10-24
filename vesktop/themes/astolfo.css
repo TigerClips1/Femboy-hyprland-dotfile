@@ -502,14 +502,14 @@
 [role="menu"] [role="menuitem"] svg { fill: currentColor; }
 
 /* v14: the dim grey menu text. Force full-white, full-opacity text + icons anywhere inside menu-ish containers. */
-[class*="menu" i], [class*="menu" i] *,
-[role="menu"], [role="menu"] * {
+[class*="menu" i], [class*="menu" i] *:not(pattern):not(pattern *):not(mask):not(mask *):not(clipPath):not(clipPath *):not([fill^="url("]),
+[role="menu"], [role="menu"] *:not(pattern):not(pattern *):not(mask):not(mask *):not(clipPath):not(clipPath *):not([fill^="url("]) {
     color: #ffffff !important;
     opacity: 1 !important;
     text-shadow: 0 1px 2px rgba(70, 10, 50, 0.45);
 }
-[class*="menu" i] svg, [class*="menu" i] svg *,
-[role="menu"] svg, [role="menu"] svg * {
+[class*="menu" i] svg, [class*="menu" i] svg *:not(pattern):not(pattern *):not(mask):not(mask *):not(clipPath):not(clipPath *):not([fill^="url("]),
+[role="menu"] svg, [role="menu"] svg *:not(pattern):not(pattern *):not(mask):not(mask *):not(clipPath):not(clipPath *):not([fill^="url("]) {
     color: #ffffff !important;
     fill: currentColor;
     opacity: 1 !important;
@@ -790,4 +790,36 @@
     border-radius: 10px !important;
     padding: 4px !important;
     box-sizing: content-box !important;
+}
+
+/* v22: Input Level meter fix lives in the v14 menu rules above: they used to set fill:currentColor and
+   opacity:1 on every svg child, which flattened the meter's pattern fill (url(#pill-frame-pattern-*)) to
+   solid white. They now skip pattern/mask/clipPath elements and anything filled with url(...). */
+
+/* v23: Input Level meter. The empty "frame" pills were solid white (the theme sets most muted/subtle colors to #fff),
+   which made the whole bar look like a white slab. Make the empty pills theme pink (#F7A8D4) instead,
+   so the lit/talking pills stand out against them. */
+pattern[id^="pill-frame-pattern"] *:not([fill="none"]) {
+    fill: #F7A8D4 !important;
+    opacity: 1 !important;
+}
+
+/* v24: remove the gray strip behind the Input Level pills. Whatever is painting it (the svg, its wrapper, or a sibling
+   rect) is made transparent / plum so only the pink pills and the theme show through. */
+svg:has(> rect[fill^="url(#pill-frame-pattern"]) {
+    background: transparent !important;
+}
+svg:has(> rect[fill^="url(#pill-frame-pattern"]) > rect:not([fill^="url(#pill-frame-pattern"]) {
+    fill: transparent !important;
+}
+:has(> svg > rect[fill^="url(#pill-frame-pattern"]) {
+    background: rgba(140, 40, 105, 0.45) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+/* v25: soften the dark bars in the Input Level meter (they were near-black, so they clashed with the pink theme).
+   Recolors any stroke inside the pill pattern to a deep plum that blends with the strip. */
+pattern[id^="pill-frame-pattern"], pattern[id^="pill-frame-pattern"] * {
+    stroke: rgba(150, 45, 115, 0.75) !important;
 }
