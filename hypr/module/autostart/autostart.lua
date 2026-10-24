@@ -26,8 +26,8 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("hyprsunset")
 
     -- Audio
-    hl.exec_cmd("easyeffects --hide-window --service-mode")
-
+    hl.exec_cmd("flatpak run com.github.wwmm.easyeffects --service-mode --hide-window")
+    
     -- Clipboard: history
     --hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("wl-paste --type text --watch bash -c 'cliphist store && qs -c $qsConfig ipc call cliphistService update'")

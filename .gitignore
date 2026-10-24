@@ -39,6 +39,7 @@ __pycache__/
 /pulse/
 /dconf/
 /systemd/
+/OpenRGB/
 
 # Local credentials, device state, and app databases
 *.pem
