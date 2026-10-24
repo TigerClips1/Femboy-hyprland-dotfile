@@ -162,8 +162,8 @@ enabled = false   # (default)
 font_name = "JetBrains Mono Nerd Font"
 primary_color = "#fb3daf"
 success_color = "#cc3fff"
-warning_color = "#e0af68"
-danger_color = "#f7768e"
+warning_color = "#e228c6"
+danger_color = "#fc0331"
 text_color = "#ffffff"
 
 workspace_colors = [ "#57cef8", "#9ece6a" ]

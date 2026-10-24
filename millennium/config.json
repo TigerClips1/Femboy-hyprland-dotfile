@@ -1,0 +1,68 @@
+{
+  "general": {
+    "accentColor": "DEFAULT_ACCENT_COLOR",
+    "checkForMillenniumUpdates": true,
+    "checkForPluginAndThemeUpdates": true,
+    "injectCSS": true,
+    "injectJavascript": true,
+    "millenniumUpdateChannel": "stable",
+    "onMillenniumUpdate": 1,
+    "shouldShowThemePluginUpdateNotifications": true
+  },
+  "misc": {
+    "hasShownWelcomeModal": true
+  },
+  "network": {
+    "proxy": "",
+    "proxyPassword": "",
+    "proxyUsername": ""
+  },
+  "notifications": {
+    "showNotifications": true,
+    "showPluginNotifications": true,
+    "showUpdateNotifications": true
+  },
+  "themes": {
+    "activeTheme": "ATOMS",
+    "allowedScripts": true,
+    "allowedStyles": true,
+    "conditions": {
+      "ATOMS": {
+        "Dim uninstalled games?": "yes",
+        "Enable Automatic Que Skipping?": "no",
+        "Enable Que Via Keyboard?": "yes",
+        "Show floating theme toggle?": "no",
+        "Use Custom Accent Color?": "no"
+      },
+      "Aika": {
+        "Add Shelf visibility": "yes",
+        "Color preset": "Aika",
+        "Compact header": "Compact",
+        "Cursor glow": "yes",
+        "Cursor glow radius": "160",
+        "Custom colors": "yes",
+        "Header wordmark": "Katakana soft",
+        "Library covers": "3D tilt",
+        "Notification opacity": "62",
+        "Notification wordmark": "Gothic",
+        "Performance": "Full",
+        "Privacy blur": "Balance",
+        "Steam News visibility": "yes",
+        "Store": "Cinematic",
+        "Top bar": "Center",
+        "URL visibility": "yes",
+        "Wallet visibility": "yes",
+        "What's New visibility": "yes"
+      }
+    },
+    "themeColors": {
+      "Aika": {
+        "--aika-user-accent": "#8B7FF0",
+        "--aika-user-accent-bright": "#A497F5",
+        "--aika-user-light-1": "#8B7FF0",
+        "--aika-user-light-2": "#C77DBA",
+        "--aika-user-light-3": "#D9906A"
+      }
+    }
+  }
+}

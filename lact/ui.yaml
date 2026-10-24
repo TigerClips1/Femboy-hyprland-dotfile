@@ -1,0 +1,9 @@
+selected_tab: info_page
+selected_gpu: 1002:7480-1EAE:7601-0000:08:00.0
+stats_poll_interval_ms: 500
+gpus: {}
+theme: breeze
+color_scheme: Dark
+window_size:
+  width: 1904
+  height: 1030
