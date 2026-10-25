@@ -131,6 +131,11 @@ hl.window_rule({
     opacity = "1.0 override 1.0 override 1.0 override",
 })
 
+hl.window_rule({
+    match = { class = "^godot.*" },
+    no_blur = true,
+    opacity = "1.0 override 1.0 override 1.0 override",
+})
 
 -- Move
 -- kde-material-you-colors spawns a window when changing dark/light theme. This is to make sure it doesn't interfere at all.
