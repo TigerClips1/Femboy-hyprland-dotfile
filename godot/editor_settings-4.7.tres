@@ -1,5 +1,14 @@
 [gd_resource type="EditorSettings" format=3]
 
+[sub_resource type="InputEventKey" id="InputEventKey_1va83"]
+alt_pressed = true
+ctrl_pressed = true
+pressed = true
+keycode = 73
+
+[sub_resource type="Shortcut" id="Shortcut_jyxms"]
+events = [SubResource("InputEventKey_1va83")]
+
 [resource]
 resource_local_to_scene = false
 resource_name = ""
@@ -333,5 +342,18 @@ _editor_log_filter_1 = true
 _editor_log_filter_3 = true
 _editor_log_filter_4 = true
 _editor_log_collapse = false
+gdquest_gdscript_formatter/format_mode = 0
+gdquest_gdscript_formatter/format_on_save = true
+gdquest_gdscript_formatter/use_spaces = false
+gdquest_gdscript_formatter/indent_size = 4
+gdquest_gdscript_formatter/formatter_path = "/home/tigerclips1/.cache/godot/gdquest/gdscript-formatter"
+gdquest_gdscript_formatter/lint_on_save = false
+gdquest_gdscript_formatter/max_line_length = 100
+gdquest_gdscript_formatter/lint_ignored_rules = ""
+gdquest_gdscript_formatter/format_on_save_ignored_directories = PackedStringArray("addons/")
+gdquest_gdscript_formatter/shortcut = SubResource("Shortcut_jyxms")
+@icons/icon_color = "Node"
+@icons/declaration_language = "GDScript"
+@icons/double_scale = false
 shortcuts = []
 builtin_action_overrides = []
