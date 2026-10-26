@@ -247,6 +247,9 @@ hl.bind("SUPER + SHIFT + L", hl.dsp.exec_cmd("systemctl suspend || loginctl susp
 hl.bind("CTRL + SHIFT + ALT + SUPER + Delete", hl.dsp.exec_cmd("systemctl poweroff || loginctl poweroff"),
     { description = "Session: Shut down" }) -- # [hidden] Power off
 
+hl.bind("SUPER + SHIFT + ALT + L", hl.dsp.exec_cmd("wleave"),
+    { description = "Session: logtout screen" }) -- # logout screen
+
 --##! Apps (program names come from module/verables/verables.lua)
 hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal), { description = "App: Terminal" })
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))

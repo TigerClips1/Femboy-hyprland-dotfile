@@ -1,0 +1,33 @@
+/* Custom Femboy Palette Tokens */
+@define-color background #0e0c15;
+@define-color foreground #f977e5;
+@define-color current_line #1a0a1f;      /* Mapped to color0 */
+@define-color selection_bg #ffb3d9;
+@define-color magenta_bright #e8589d;    /* Mapped to color1 */
+@define-color pink_bright #ff6fb8;       /* Mapped to color9 */
+@define-color purple_accent #d699e8;     /* Mapped to color5 */
+@define-color light_purple #e8b8f5;      /* Mapped to color13 */
+@define-color border_muted #4a2a5c;      /* Mapped to color8 */
+
+/* Main window configuration */
+window {
+    background-color: rgba(14, 12, 21, 0.85); /* #0e0c15 with 85% opacity  for the Femboy color palette*/
+    color: @foreground;
+}
+
+/* Button styling */
+button {
+    background-color: @current_line;
+    color: @foreground;
+    border-radius: 8px;
+    border: 2px solid @border_muted;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+/* Hover, active, and focus highlights using the femboy pink/purple highlights */
+button:focus, button:active, button:hover {
+    background-color: @purple_accent;
+    color: @background;
+    border: 2px solid @selection_bg;
+}
