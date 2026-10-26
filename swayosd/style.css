@@ -1,0 +1,53 @@
+/* Based on: 
+ * https://github.com/ErfanRasti/dotfiles/blob/main/dotfiles/swayosd/.config/swayosd/style.css 
+*/
+
+@define-color background  #282a36;
+@define-color pink      #e8589d;
+
+window#osd {
+  border-radius: 10px;
+  border: 2px solid @pink;
+  background: alpha(@background, 0.95);
+}
+
+window#osd #container {
+  margin: 4px;
+  padding: 4px;
+  background: transparent;
+}
+
+window#osd image {
+  -gtk-icon-transform: scale(0.8);
+}
+
+window#osd image,
+window#osd label {
+  color: @pink;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.2;
+}
+
+window#osd progressbar {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+window#osd trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: alpha(@pink, 0.3);
+}
+
+window#osd progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @pink;
+}

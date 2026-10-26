@@ -51,21 +51,21 @@ hl.bind("SUPER + code:86", function() zoomfunction(0.3) end, { repeating = true 
 local mediaNextCommand =
 "playerctl next || playerctl position `bc <<< \"100 * $(playerctl metadata mpris:length) / 1000000 / 100\"`"
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(mediaNextCommand), { locked = true, description = "Media: Next track" })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(mediaNextCommand), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("F8", hl.dsp.exec_cmd(mediaNextCommand), { locked = true })
+hl.bind("F6", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("SUPER + SHIFT + ALT + mouse:275", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind("SUPER + SHIFT + ALT + mouse:276", hl.dsp.exec_cmd(mediaNextCommand))
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("playerctl previous"),
     { locked = true, description = "Media: Previous track" })
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("playerctl play-pause"),
     { locked = true, description = "Media: Play/pause media" })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { locked = true })
+hl.bind("SUPER + F7", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("SUPER + F7", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("SUPER + F4", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { locked = true })
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"),
     { locked = true, description = "Media: Toggle mute" })
-hl.bind("ALT + XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
+hl.bind("ALT + F4", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
+hl.bind("SUPER + F4", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
 hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),
     { locked = true, description = "Media: Toggle mic" })
 
