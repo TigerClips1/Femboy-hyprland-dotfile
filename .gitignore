@@ -70,6 +70,7 @@ machineid
 /QtProject.conf
 *.dirs
 *.locale
+/kiorc
 
 # Oomox UI state (palette and export presets remain shareable)
 /oomox/recent_palette.json
