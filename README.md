@@ -1,6 +1,6 @@
 # Femboy Hyprland dotfiles
 
-![Alt text](https://www.digitalocean.com/api/static-content/v1/images?src=https%3A%2F%2Fassets.digitalocean.com%2Farticles%2Falligator%2Fboo.svg&token=3b393c4e6c647039515f968de472a17b4ff48f2082204b56512e8c13d1cd5e04 "a title")
+<a href="https://ibb.co/j99jfgRS"><img src="https://i.ibb.co/6ccqwgBk/image.png" alt="image" border="0" /></a>
 
 Personal Linux desktop configuration, centered on Hyprland. The repository contains configurations for Hyprland and related utilities, along with selected application settings and themes.
 
