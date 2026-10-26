@@ -51,8 +51,8 @@ hl.bind("SUPER + code:86", function() zoomfunction(0.3) end, { repeating = true 
 local mediaNextCommand =
 "playerctl next || playerctl position `bc <<< \"100 * $(playerctl metadata mpris:length) / 1000000 / 100\"`"
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(mediaNextCommand), { locked = true, description = "Media: Next track" })
-hl.bind("F8", hl.dsp.exec_cmd(mediaNextCommand), { locked = true })
-hl.bind("F6", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("SUPER + F8", hl.dsp.exec_cmd(mediaNextCommand), { locked = true })
+hl.bind("SUPER + F6", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("SUPER + SHIFT + ALT + mouse:275", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind("SUPER + SHIFT + ALT + mouse:276", hl.dsp.exec_cmd(mediaNextCommand))
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("playerctl previous"),
