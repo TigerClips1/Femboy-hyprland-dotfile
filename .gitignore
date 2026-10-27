@@ -76,3 +76,5 @@ machineid
 # Oomox UI state (palette and export presets remain shareable)
 /oomox/recent_palette.json
 /oomox/ui_config.json
+vlc/vlc-qt-interface.conf
+vlc/vlcrc

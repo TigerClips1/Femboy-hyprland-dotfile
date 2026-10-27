@@ -14,6 +14,10 @@ hl.on("hyprland.start", function ()
     -- Portals, wallpaper, launcher, idle handling, status bar, night light
     hl.exec_cmd(home .. "/.config/hypr/scripts/femboyflag_border.sh")
     hl.exec_cmd(home .. "/.config/hypr/scripts/xdg-fix.sh")
+    
+    -- Permanently automate Vesktop screen share audio routing
+    hl.exec_cmd("~/.config/hypr/scripts/vesktop-audio.sh &")
+    
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hyprlauncher --daemon")
     -- Execute each background process in its own individual call
@@ -34,6 +38,9 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME")
     hl.exec_cmd("ashell")
     hl.exec_cmd("hyprsunset")
+    
+    -- Sync environment variables for D-Bus and Systemd
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 
     -- Audio
     hl.exec_cmd("sleep 3 && flatpak run com.github.wwmm.easyeffects --hide-window")
