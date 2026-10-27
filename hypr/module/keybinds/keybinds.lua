@@ -262,6 +262,8 @@ hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd(textEditor), { description = "App: 
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd(volumeMixer), { description = "App: Volume mixer" })
 hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
 hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(random_wallpaper), { description = "App: Randomize wallpaper" })
+hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("env QT_QPA_PLATFORM=xcb /opt/resolve/bin/resolve"), { description = "App: DaVinci Resolve (XWayland)" })
+
 -- Application launcher
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 -- hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })

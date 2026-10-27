@@ -41,6 +41,10 @@ __pycache__/
 /systemd/
 /OpenRGB/
 /menus/
+/obs-studio/
+/Unknown Organization/
+channels4_profile.jpg
+/Blackmagic Design/
 
 # Local credentials, device state, and app databases
 *.pem

@@ -44,6 +44,12 @@ hl.window_rule({
     opacity = 0.0
 })
 
+hl.window_rule({
+    name = "Davincis fixes",
+    match = { class = "^resolve.*" },
+    no_blur = true,
+    opacity = "1.0 override 1.0 override 1.0 override",
+})
 
 -- Move kitty to the center of the cursor
 hl.window_rule({
