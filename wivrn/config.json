@@ -1,0 +1,8 @@
+{
+  "debug-gui": false,
+  "encoder": "vaapi",
+  "hid-forwarding": true,
+  "lh-stick-deadzone": 0.0,
+  "openvr-compat-path": "/opt/opencomposite",
+  "use-steamvr-lh": true
+}

@@ -82,3 +82,7 @@ machineid
 /oomox/ui_config.json
 vlc/vlc-qt-interface.conf
 vlc/vlcrc
+openxr/1/active_runtime.json
+.gitignore
+wivrn/known_keys.json
+wivrn/cookie
